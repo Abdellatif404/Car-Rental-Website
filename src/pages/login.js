@@ -1,4 +1,4 @@
-function SignUp() {
+function Login() {
   return (
     <section className="ftco-section">
       <div className="container">
@@ -8,37 +8,14 @@ function SignUp() {
               <div className="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
                 <div className="text w-100">
                   <h2>Welcome to login</h2>
-                  <p>Already a user?</p>
-                  <a href="/login" className="btn btn-white btn-outline-white">
-                    Log In
+                  <p>Don't have an account?</p>
+                  <a href="/signup" className="btn btn-white btn-outline-white">
+                    Sign Up
                   </a>
                 </div>
               </div>
               <div className="login-wrap p-4 p-lg-5">
                 <form action="#" className="signin-form">
-                  <div className="form-group mb-3">
-                    <label className="label" for="fullname">
-                      Fullname
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Fullname"
-                      required
-                    />
-                  </div>
-                  <div className="form-group mb-3">
-                    <label className="label" for="phone">
-                      Phone number
-                    </label>
-                    <input
-                      type="tel"
-                      className="form-control"
-                      placeholder="Phone number"
-                      required
-                    />
-                  </div>
-
                   <div className="form-group mb-3">
                     <label className="label" for="email">
                       Email
@@ -66,7 +43,7 @@ function SignUp() {
                       type="submit"
                       className="form-control btn btn-primary submit px-3 my-3"
                     >
-                      Create account
+                      Sign In
                     </button>
                   </div>
                 </form>
@@ -79,4 +56,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Login;
