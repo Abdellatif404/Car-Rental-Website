@@ -5,7 +5,7 @@ function SignUp() {
         <div className="row justify-content-center">
           <div className="col-md-12 col-lg-10">
             <div className="wrap d-md-flex">
-              <div className="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+              <div className="signup text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
                 <div className="text w-100">
                   <h2>Welcome to login</h2>
                   <p>Already a user?</p>
@@ -64,7 +64,7 @@ function SignUp() {
                   <div className="form-group">
                     <button
                       type="submit"
-                      className="form-control btn btn-primary submit px-3 my-3"
+                      className="signup-button form-control btn btn-primary submit px-3 my-3"
                     >
                       Create account
                     </button>
