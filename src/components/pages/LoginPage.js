@@ -17,7 +17,7 @@ function Login() {
               <div className="login-wrap p-4 p-lg-5">
                 <form action="#" className="signin-form">
                   <div className="form-group mb-3">
-                    <label className="label" for="email">
+                    <label className="label" htmlFor="email">
                       Email
                     </label>
                     <input
@@ -28,7 +28,7 @@ function Login() {
                     />
                   </div>
                   <div className="form-group mb-3">
-                    <label className="label" for="password">
+                    <label className="label" htmlFor="password">
                       Password
                     </label>
                     <input
