@@ -1,9 +1,9 @@
-import Login from "./components/pages/LoginPage";
-import SignUp from "./components/pages/SignUpPage";
+import Login from "./pages/LoginPage";
+import SignUp from "./pages/SignUpPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/pages/HomePage";
-import BookCars from "./components/pages/BookCarsPage";
-import Header from "./components/layouts/header/Header";
+import Home from "./pages/HomePage";
+import BookCars from "./pages/BookCarsPage";
+import Header from "./layouts/header/Header";
 import React from "react";
 
 function App() {
