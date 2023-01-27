@@ -1,16 +1,16 @@
-const LoginCard = (props) => {
+const LoginCard = ({ styleClass = "", msg, route, btnMsg }) => {
   return (
     <div
       className={
-        props.styleClass +
+        styleClass +
         " text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last"
       }
     >
       <div className="text w-100">
         <h2>Welcome to login</h2>
-        <p>{props.msg}?</p>
-        <a href={props.route} className="btn btn-white btn-outline-white">
-          {props.btnMsg}
+        <p>{msg}?</p>
+        <a href={route} className="btn btn-white btn-outline-white">
+          {btnMsg}
         </a>
       </div>
     </div>

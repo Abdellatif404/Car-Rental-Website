@@ -4,39 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #fff;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #007bff;
-  --secondary: #6c757d;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-}
+
 
 /*@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Parisienne&family=Poppins:wght@200;300;400;500;600;700&family=Roboto&display=swap');
 
@@ -51,25 +19,7 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
 
-article,
-aside,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-  display: block;
-}
 
 body {
   margin: 0;
@@ -84,41 +34,11 @@ body {
   background-color: #fff;
 }
 
-[tabindex="-1"]:focus {
-  outline: 0 !important;
-}
 
-hr {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
 
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
 
-abbr[title],
-abbr[data-original-title] {
-  text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
-  cursor: help;
-  border-bottom: 0;
-  text-decoration-skip-ink: none;
-}
+
 
 address {
   margin-bottom: 1rem;
@@ -285,12 +205,7 @@ select {
   word-wrap: normal;
 }
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
+
 
 button:not(:disabled),
 [type="button"]:not(:disabled),
@@ -10572,9 +10487,6 @@ a.text-dark:focus {
   a:not(.btn) {
     text-decoration: underline;
   }
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
   pre {
     white-space: pre-wrap !important;
   }
@@ -10824,97 +10736,6 @@ h5,
   border-color: transparent;
 }
 
-.social-media {
-  position: relative;
-  width: 100%;
-}
-.social-media .social-icon {
-  display: block;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  font-size: 16px;
-  margin-right: 5px;
-  border-radius: 50%;
-}
-.social-media .social-icon span {
-  color: #999999;
-}
-.social-media .social-icon:hover,
-.social-media .social-icon:focus {
-  background: #f35588;
-}
-.social-media .social-icon:hover span,
-.social-media .social-icon:focus span {
-  color: #fff;
-}
-
-.checkbox-wrap {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.checkbox-wrap input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "\f0c8";
-  font-family: "FontAwesome";
-  position: absolute;
-  color: rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  margin-top: -4px;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
-@media (prefers-reduced-motion: reduce) {
-  .checkmark:after {
-    -webkit-transition: none;
-    -o-transition: none;
-    transition: none;
-  }
-}
-
-/* Show the checkmark when checked */
-.checkbox-wrap input:checked ~ .checkmark:after {
-  display: block;
-  content: "\f14a";
-  font-family: "FontAwesome";
-  color: rgba(0, 0, 0, 0.2);
-}
-
-/* Style the checkmark/indicator */
-.checkbox-primary {
-  color: #f35588;
-}
-.checkbox-primary input:checked ~ .checkmark:after {
-  color: #f35588;
-}
 
 .btn {
   cursor: pointer;
@@ -11099,3 +10920,156 @@ h5,
 }
 
 */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
+ul{
+  margin: 0;
+  padding: 0;
+}
+ul li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wrapper{
+  /*width: 840px;*/
+  
+  margin: 0 auto;
+  /*height: 1200px;*/
+}
+.vehicle-card{
+  position: relative;
+  display: inline-block;
+  width: 240px;  
+  height: 335px;
+  overflow: visible;
+  z-index: 1;
+  border-radius: 2px;
+  margin: 0 20px 20px 0;
+}
+
+.vehicle-card:hover {
+  z-index: 2;
+  -webkit-transform: translate(0px, -10px);
+  transform: translate(0, -10px);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+.vehicle-card .details{
+  position: absolute;
+  width: 50vh;
+  height: 42vh;
+  /*height: 310px;
+  width: 240px;*/
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.vehicle-card .details:hover{
+  -webkit-transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  /*height: 400px;
+  width: 240px;*/
+  width: 50vh;
+  height: 42vh;
+}
+.vehicle-card .info{
+  margin: 10px;
+}
+.vehicle-card .ctas{
+  margin: 10px 0;
+}
+.thumb-gallery{
+  height: 150px;
+}
+.thumb-gallery img{
+  position: absolute; 
+  width: 50vh;
+}
+.thumb-gallery img.first{
+    
+  opacity: 1;
+}
+.vehicle-card:hover .thumb-gallery img.second{
+  opacity: 0;
+  -webkit-transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/*styling*/
+
+.vehicle-card h3{
+  margin: 0;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: -.5px;
+}
+.vehicle-card .price span{
+  font-family: "Helvetica", Arial, sans-serif;
+  color: #999;
+  font-size: .75rem;
+}
+.vehicle-card .price h4{
+  margin: 0;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+  color: #222;
+  font-size: 1.25rem;
+}
+.vehicle-card .specs{
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+  margin: 15px 0;
+  padding: 10px 0;  
+}
+.specs .spec{
+  display: inline-block;
+  margin-right: 10px;
+}
+.specs span{
+  font-family: "Helvetica", Arial, sans-serif;
+  color: #999;
+  font-size: .75rem;
+}
+.specs p{
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+.specs p span{
+  font-size: .75rem;
+  margin-left: 2px;
+  font-weight: normal;
+}
+.btn-book{
+  display: block;
+  padding: 0 10px;
+  float: left;
+  font-size: .75rem;
+  font-family: "Helvetica", Arial, sans-serif;
+  text-decoration: none;
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  border-radius: 2px;
+  font-weight: bold;  
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+} 
+.primary{
+  background-color: #1383b3;
+  color: #fff;
+  margin-right: 10px;
+  line-height: 30px;
+}
+.secondary{
+  background-color: #fff;
+  color: #1383b3;
+  border: 2px solid #1383b3;  
+  line-height: 26px;
+}

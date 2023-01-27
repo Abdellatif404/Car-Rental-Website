@@ -1,6 +1,6 @@
 import FormButton from "./form-button";
 
-function SignInForm() {
+const LoginForm = () => {
   return (
     <div className="login-wrap p-4 p-lg-5">
       <form action="#" className="signin-form">
@@ -29,11 +29,11 @@ function SignInForm() {
         </div>
 
         <div className="form-group">
-          <FormButton styleClass="" btnMsg="Sign In" />
+          <FormButton btnMsg="Sign In" />
         </div>
       </form>
     </div>
   );
-}
+};
 
-export default SignInForm;
+export default LoginForm;

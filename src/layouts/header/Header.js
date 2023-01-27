@@ -1,10 +1,4 @@
-import { useNavigate } from "react-router-dom";
-
-function Header() {
-  const to_route = useNavigate();
-  const navigate = (route) => {
-    to_route(route);
-  };
+const Header = ({ component }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light mx-4 m-2">
       <div className="container-fluid">
@@ -24,7 +18,7 @@ function Header() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <a className="navbar-brand mt-2 mt-lg-0 mr-5" href="#">
-            Kriit
+            Locavo
           </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item ml-4">
@@ -44,25 +38,10 @@ function Header() {
             </li>
           </ul>
         </div>
-        <div className="signin-options d-flex align-items-center">
-          <button
-            type="button"
-            className="btn btn-link px-3 me-2"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button>
-          <button
-            type="button"
-            className="btn btn-primary me-3"
-            onClick={() => navigate("/signup")}
-          >
-            Sign up for free
-          </button>
-        </div>
+        {component}
       </div>
     </nav>
   );
-}
+};
 
 export default Header;
