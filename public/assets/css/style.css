@@ -5,7 +5,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-
 /*@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Parisienne&family=Poppins:wght@200;300;400;500;600;700&family=Roboto&display=swap');
 
 * {
@@ -19,8 +18,6 @@
   box-sizing: border-box;
 }
 
-
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -33,12 +30,6 @@ body {
   text-align: left;
   background-color: #fff;
 }
-
-
-
-
-
-
 
 address {
   margin-bottom: 1rem;
@@ -204,8 +195,6 @@ select {
 select {
   word-wrap: normal;
 }
-
-
 
 button:not(:disabled),
 [type="button"]:not(:disabled),
@@ -10736,7 +10725,6 @@ h5,
   border-color: transparent;
 }
 
-
 .btn {
   cursor: pointer;
   -webkit-box-shadow: none !important;
@@ -10920,31 +10908,34 @@ h5,
 }
 
 */
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
-ul{
+
+
+/* BOOK CARS STYLES */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700");
+ul {
   margin: 0;
   padding: 0;
 }
-ul li{
+ul li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.wrapper{
-  /*width: 840px;*/
-  
-  margin: 0 auto;
-  /*height: 1200px;*/
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 50px 30px 0 30px;
+  height: 1200px;
 }
-.vehicle-card{
+.vehicle-card {
   position: relative;
-  display: inline-block;
-  width: 240px;  
+  display: flex;
+  justify-content: center;
   height: 335px;
   overflow: visible;
   z-index: 1;
-  border-radius: 2px;
-  margin: 0 20px 20px 0;
+  margin: 0 40px;
 }
 
 .vehicle-card:hover {
@@ -10957,119 +10948,114 @@ ul li{
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-
-.vehicle-card .details{
-  position: absolute;
-  width: 50vh;
-  height: 42vh;
-  /*height: 310px;
-  width: 240px;*/
+.vehicle-card .details {
+  position: relative;
+  height: 375px;
+  width: 330px;
+  border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
 }
 
-.vehicle-card .details:hover{
-  -webkit-transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+.vehicle-card .details:hover {
+  -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  /*height: 400px;
-  width: 240px;*/
-  width: 50vh;
-  height: 42vh;
+  height: 460px;
+  width: 330px;
 }
-.vehicle-card .info{
+.vehicle-card .info {
   margin: 10px;
 }
-.vehicle-card .ctas{
+.vehicle-card .ctas {
   margin: 10px 0;
 }
-.thumb-gallery{
-  height: 150px;
+.thumb-gallery {
+  height: 215px;
 }
-.thumb-gallery img{
-  position: absolute; 
-  width: 50vh;
+.thumb-gallery img {
+  position: absolute;
+  width: 100%;
 }
-.thumb-gallery img.first{
-    
+.thumb-gallery img.first {
   opacity: 1;
 }
-.vehicle-card:hover .thumb-gallery img.second{
+.vehicle-card:hover .thumb-gallery img.second {
   opacity: 0;
-  -webkit-transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 /*styling*/
 
-.vehicle-card h3{
+.vehicle-card h3 {
   margin: 0;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
-  letter-spacing: -.5px;
+  letter-spacing: -0.5px;
 }
-.vehicle-card .price span{
+.vehicle-card .price span {
   font-family: "Helvetica", Arial, sans-serif;
   color: #999;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
-.vehicle-card .price h4{
+.vehicle-card .price h4 {
   margin: 0;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   color: #222;
   font-size: 1.25rem;
 }
-.vehicle-card .specs{
+.vehicle-card .specs {
   border-top: 1px solid #dadada;
   border-bottom: 1px solid #dadada;
   margin: 15px 0;
-  padding: 10px 0;  
+  padding: 10px 0;
 }
-.specs .spec{
+.specs .spec {
   display: inline-block;
   margin-right: 10px;
 }
-.specs span{
+.specs span {
   font-family: "Helvetica", Arial, sans-serif;
   color: #999;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
-.specs p{
+.specs p {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: bold;
   margin: 0;
 }
-.specs p span{
-  font-size: .75rem;
+.specs p span {
+  font-size: 0.75rem;
   margin-left: 2px;
   font-weight: normal;
 }
-.btn-book{
+.btn-book {
   display: block;
   padding: 0 10px;
   float: left;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-family: "Helvetica", Arial, sans-serif;
   text-decoration: none;
   height: 30px;
   width: 100px;
   text-align: center;
   border-radius: 2px;
-  font-weight: bold;  
+  font-weight: bold;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-} 
-.primary{
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+.primary {
   background-color: #1383b3;
   color: #fff;
   margin-right: 10px;
   line-height: 30px;
 }
-.secondary{
+.secondary {
   background-color: #fff;
   color: #1383b3;
-  border: 2px solid #1383b3;  
+  border: 2px solid #1383b3;
   line-height: 26px;
 }
