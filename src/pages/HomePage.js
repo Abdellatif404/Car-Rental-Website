@@ -1,34 +1,12 @@
 import OutlineButton from "../components/ui/outline-button";
-import Header from "../layouts/header/Header";
-import { useNavigate } from "react-router-dom";
+import Navbar from "../components/navbar/Navbar";
+import NavbarLoginButtons from "../components/navbar/navbar-login-buttons";
 
 function Home() {
-  const to_route = useNavigate();
-  const navigate = (route) => {
-    to_route(route);
-  };
+  
   return (
     <>
-      <Header
-        component={
-          <div className="signin-options d-flex align-items-center">
-            <button
-              type="button"
-              className="btn btn-link px-3 me-2"
-              onClick={() => navigate("/login")}
-            >
-              Login
-            </button>
-            <button
-              type="button"
-              className="btn btn-primary me-3"
-              onClick={() => navigate("/signup")}
-            >
-              Sign up for free
-            </button>
-          </div>
-        }
-      />
+      <Navbar component={<NavbarLoginButtons />} />
       <div className="flex-container">
         <div className="title">
           <h1>

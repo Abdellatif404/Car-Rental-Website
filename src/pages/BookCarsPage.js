@@ -1,4 +1,4 @@
-import Header from "../layouts/header/Header";
+import Header from "../components/navbar/Navbar";
 
 function BookCars() {
   return (
