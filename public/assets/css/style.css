@@ -3,8 +3,9 @@
 * {
   font-family: Poppins;
 }
-
-/* NAVBAR BUTTONS STYLES */
+/*****************************/
+/* HOME NAVBAR BUTTONS STYLE */
+/*****************************/
 
 .login-buttons {
   position: absolute;
@@ -56,13 +57,80 @@
   outline-offset: 2px;
 }
 
+/*****************************/
+/* FORM CONTROL STYLE */
+/*****************************/
 
+.form-input {
+  color: #495057;
+  background-color: #f2f2f2;
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 2rem;
+}
 
+.form-input::placeholder {
+  color: #b3b9c0;
+  font-size: 15px;
+}
 
+.form-btn-primary {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+}
 
+/*.form-grp:focus-within input {
+}*/
 
+/*****************************/
+/* FORM SUBCARD STYLE */
+/*****************************/
 
+.container {
+  position: relative;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
+.bg-primary {
+  width: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(31, 179, 237, 0.9) 10%,
+    rgba(17, 106, 197, 0.9) 90%
+  );
+}
+
+.bg-secondary {
+  background: linear-gradient(
+    130deg,
+    rgba(246, 191, 13, 1) 0%,
+    rgba(249, 47, 47, 1) 150%
+  );
+}
+
+.subcard-btn-outline {
+  position: relative;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 22px;
+  padding: 10px 20px;
+  transition: all 0.2s linear;
+  text-decoration: none;
+}
+
+.subcard-btn-outline:hover {
+  background-color: #fff;
+  color: #1383b3;
+}
 
 /*The code below still not organized*/
 
@@ -120,14 +188,6 @@
   );
   display: inline-block;
   vertical-align: middle;
-}
-
-.signup {
-  background: linear-gradient(
-    130deg,
-    rgba(246, 191, 13, 1) 0%,
-    rgba(249, 47, 47, 1) 150%
-  );
 }
 
 .signup-button.btn.btn-primary {

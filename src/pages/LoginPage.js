@@ -1,5 +1,5 @@
 import Card from "../components/form/card";
-import LoginCard from "../components/form/login-card";
+import LoginSubCard from "../components/form/login-sub-card";
 import LoginForm from "../components/form/login-form";
 
 function Login() {
@@ -7,7 +7,8 @@ function Login() {
     <Card
       component={
         <>
-          <LoginCard
+          <LoginSubCard
+            bgColor="bg-primary"
             route="/signup"
             msg="Don't have an account"
             btnMsg="Sign Up"
