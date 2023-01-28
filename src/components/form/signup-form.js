@@ -1,6 +1,7 @@
 import FormButton from "./form-button";
 
 const SignUpForm = () => {
+
   return (
     <div className="login-wrap p-4 p-lg-5">
       <form action="#" className="signin-form">

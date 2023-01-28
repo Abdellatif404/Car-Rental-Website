@@ -1,3 +1,4 @@
+
 const Card = ({ component }) => {
   return (
     <section className="container d-flex mt-5 justify-content-center">
