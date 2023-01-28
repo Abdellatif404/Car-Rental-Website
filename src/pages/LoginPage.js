@@ -1,19 +1,19 @@
 import Card from "../components/form/card";
-import LoginCard from "../components/form/login-card";
-import SignInForm from "../components/form/login-form";
+import LoginSubCard from "../components/form/login-sub-card";
+import LoginForm from "../components/form/login-form";
 
 function Login() {
   return (
     <Card
       component={
         <>
-          <LoginCard
+          <LoginSubCard
+            bgColor="bg-primary"
             route="/signup"
-            styleClass=""
             msg="Don't have an account"
             btnMsg="Sign Up"
           />
-          <SignInForm />
+          <LoginForm />
         </>
       }
     />

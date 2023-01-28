@@ -1,10 +1,11 @@
-const Card = (props) => {
+
+const Card = ({ component }) => {
   return (
-    <section className="ftco-section">
-      <div className="container">
+    <section className="container d-flex mt-5 justify-content-center">
+      <div className="card mt-lg-5">
         <div className="row justify-content-center">
-          <div className="col-md-12 col-lg-10">
-            <div className="wrap d-md-flex">{props.component}</div>
+          <div className="col-md-0 col-lg-0">
+            <div className="wrap d-md-flex">{component}</div>
           </div>
         </div>
       </div>

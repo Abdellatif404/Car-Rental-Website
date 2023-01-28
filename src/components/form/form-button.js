@@ -1,12 +1,13 @@
-const FormButton = (props) => {
+
+const FormButton = ({ styleClass = "", btnName }) => {
   return (
     <button
       type="submit"
-      className={props.styleClass+" form-control btn btn-primary submit px-3 my-3"}
+      className={styleClass + " btn-primary form-btn-primary pt-3"}
     >
-      {props.btnMsg}
+      {btnName}
     </button>
   );
-}
+};
 
 export default FormButton;
