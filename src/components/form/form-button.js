@@ -1,8 +1,8 @@
-const FormButton = ({ styleClass = "", btnName }) => {
+const FormButton = ({ bgColor = "", btnName }) => {
   return (
     <button
       type="submit"
-      className={styleClass + " btn-primary form-btn-primary pt-3"}
+      className={bgColor + " form-btn-primary pt-3"}
     >
       {btnName}
     </button>

@@ -1,4 +1,4 @@
-const LoginSubCard = ({ bgColor, msg, route, btnMsg }) => {
+const LoginSubCard = ({textColor="", bgColor, question, route, btnName }) => {
   return (
     <div
       className={
@@ -8,9 +8,9 @@ const LoginSubCard = ({ bgColor, msg, route, btnMsg }) => {
     >
       <div className="p-lg-5 p-md-0 p-4 w-100">
         <h2>Welcome to Locavo</h2>
-        <p className="mb-4">{msg}?</p>
-        <a href={route} className="subcard-btn-outline">
-          {btnMsg}
+        <p className="mb-4">{question}?</p>
+        <a href={route} className={textColor+" subcard-btn-outline"}>
+          {btnName}
         </a>
       </div>
     </div>

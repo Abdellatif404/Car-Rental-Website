@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "../components/navbar/Navbar";
 
 function BookCars() {
@@ -5,55 +6,20 @@ function BookCars() {
     <>
       <Header
         component={
-          <div className="d-flex align-items-center">
-            <div className="container-fluid">
-              <ul className="navbar-nav d-flex flex-row">
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    <span className="badge badge-pill bg-danger">1</span>
-                    <span>
-                      <i className="fa fa-shopping-cart"></i>
-                    </span>
-                  </a>
-                </li>
-                <li className="nav-item me-3 me-lg-0 dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="fa fa-user"></i>
-                  </a>
-                  <ul
-                    className="dropdown-menu"
-                    aria-labelledby="navbarDropdown"
-                  >
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <>
+            <ul className="navbar-nav login-buttons d-flex flex-row">
+              <li className="nav-item mx-3">
+                <Link className="nav-link" to="/profile">
+                  <i className="fa fa-user fa-lg"></i>
+                </Link>
+              </li>
+              <li className="nav-item mx-3">
+                <Link className="nav-link" to="/login">
+                  <i className="logout-icon fa fa-sign-out fa-lg"></i>
+                </Link>
+              </li>
+            </ul>
+          </>
         }
       />
 
@@ -235,3 +201,60 @@ function BookCars() {
 }
 
 export default BookCars;
+
+/*
+
+<li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <span className="badge badge-pill bg-danger">1</span>
+                    <span>
+                      <i className="fa fa-shopping-cart"></i>
+                    </span>
+                  </a>
+                </li>
+
+*/
+/*
+<div className="d-flex align-items-center">
+            <div className="container-fluid">
+              <ul className="navbar-nav d-flex flex-row">
+                <li className="nav-item me-3 me-lg-0 dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i className="fa fa px-2"></i>
+                    <label>More</label>
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Rentals
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Profile
+                      </a>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Log out
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+*/

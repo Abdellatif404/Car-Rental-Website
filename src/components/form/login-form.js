@@ -31,7 +31,7 @@ const LoginForm = () => {
         </div>
 
         <div className="form-group">
-          <FormButton btnName="Sign In" />
+          <FormButton bgColor="btn-primary" btnName="Sign In" />
         </div>
       </form>
     </div>

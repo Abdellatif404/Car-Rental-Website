@@ -1,8 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo&family=Parisienne&family=Poppins:wght@200;300;400;500;600;700&family=Roboto&display=swap");
 
 * {
+    --white: #fff;
+    --blue-gradient: linear-gradient(
+        150deg,
+        rgba(31, 179, 237, 1) 10%,
+        rgba(17, 106, 197, 1) 90%
+      );
+      --orange-gradient: linear-gradient(
+        130deg,
+        rgba(246, 191, 13, 1) 0%,
+        rgba(249, 47, 47, 1) 150%
+      );
   font-family: Poppins;
 }
+
+
 /*****************************/
 /* HOME NAVBAR BUTTONS STYLE */
 /*****************************/
@@ -15,28 +28,27 @@
   font-size: 14px;
 }
 
-.btn-primary {
-  background: linear-gradient(
-    150deg,
-    rgba(31, 179, 237, 1) 10%,
-    rgba(17, 106, 197, 1) 90%
-  );
-  color: #fff;
+.btn-primary, .btn-secondary {
+    color: var(--white);
   padding: 11px 16px;
   border: none;
   border-radius: 50px;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(
-    120deg,
-    rgba(31, 179, 237, 0.9) 10%,
-    rgba(17, 106, 197, 0.9) 90%
-  );
+.btn-primary {
+  background: var(--blue-gradient);
+}
+
+.btn-secondary {
+    background: var(--orange-gradient);
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  opacity: 0.9;
 }
 
 .btn-outline-secondary {
-  background-color: #ffffff;
+  background-color: var(--white);
   border: 0;
   border-radius: 2rem;
   box-sizing: border-box;
@@ -57,6 +69,11 @@
   outline-offset: 2px;
 }
 
+.logout-icon:hover {
+    color: #ed3a4f;
+    transition: all 0.2s linear;
+}
+
 /*****************************/
 /* FORM CONTROL STYLE */
 /*****************************/
@@ -69,6 +86,11 @@
   padding: 0.7rem 1.2rem;
   border: none;
   border-radius: 2rem;
+  transition: all 0.5s linear;
+}
+
+.form-input:focus {
+    outline-color: #b3b9c0;
 }
 
 .form-input::placeholder {
@@ -82,8 +104,6 @@
   margin-top: 2rem;
 }
 
-/*.form-grp:focus-within input {
-}*/
 
 /*****************************/
 /* FORM SUBCARD STYLE */
@@ -102,25 +122,18 @@
 
 .bg-primary {
   width: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(31, 179, 237, 0.9) 10%,
-    rgba(17, 106, 197, 0.9) 90%
-  );
+  background: var(--blue-gradient);
 }
 
 .bg-secondary {
-  background: linear-gradient(
-    130deg,
-    rgba(246, 191, 13, 1) 0%,
-    rgba(249, 47, 47, 1) 150%
-  );
+  background: var(--orange-gradient);
 }
+
 
 .subcard-btn-outline {
   position: relative;
-  color: #fff;
-  border: 1px solid #fff;
+  color: var(--white);
+  border: 1px solid var(--white);
   border-radius: 22px;
   padding: 10px 20px;
   transition: all 0.2s linear;
@@ -128,9 +141,22 @@
 }
 
 .subcard-btn-outline:hover {
-  background-color: #fff;
-  color: #1383b3;
+  background-color: var(--white);
 }
+
+.text-blue:hover {
+    color: #1383b3;
+}
+
+.text-orange:hover {
+    color: orange;
+}
+
+
+
+
+
+
 
 /*The code below still not organized*/
 

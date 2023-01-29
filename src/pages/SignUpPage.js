@@ -1,23 +1,28 @@
 import Card from "../components/form/card";
-import LoginCard from "../components/form/login-sub-card";
+import SubCard from "../components/form/sub-card";
 import SignUpForm from "../components/form/signup-form";
+import Navbar from "../components/navbar/Navbar";
 
 function SignUp() {
   return (
-    <Card
-      component={
-        <>
-          <LoginCard
-            route="/login"
-            styleClass="signup"
-            msg="Already a user"
-            btnMsg="Log In"
-          />
+    <>
+      <Navbar />
+      <Card
+        component={
+          <>
+            <SubCard
+              textColor="text-orange"
+              bgColor="bg-secondary"
+              route="/login"
+              question="Already a user"
+              btnName="Log In"
+            />
 
-          <SignUpForm />
-        </>
-      }
-    />
+            <SignUpForm />
+          </>
+        }
+      />
+    </>
   );
 }
 
