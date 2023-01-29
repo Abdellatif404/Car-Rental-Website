@@ -13,7 +13,7 @@ const NavbarLinks = () => {
           </Link>
         </li>
         <li className="nav-item mx-2">
-          <Link className="nav-link" to="/book_cars">
+          <Link className="nav-link" to="/cars">
             Book Cars
           </Link>
         </li>

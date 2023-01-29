@@ -15,6 +15,10 @@
   font-family: Poppins;
 }
 
+body {
+    height: 100%;
+    background: #000;
+}
 
 /*****************************/
 /* HOME NAVBAR BUTTONS STYLE */
@@ -160,18 +164,7 @@
 
 /*The code below still not organized*/
 
-.flex-container {
-  display: flex;
-  align-items: center;
-}
-.title {
-  flex: 1;
-  position: relative;
-  white-space: nowrap;
-  padding-left: 80px;
-  padding-bottom: 100px;
-  margin-right: 50px;
-}
+
 .title h1 {
   font-weight: 600;
   font-size: 50px;
@@ -180,15 +173,14 @@
   color: rgb(255, 191, 13);
 }
 .title p {
-  margin: 00.5rem 0 1rem;
+    color: #495057;
+  margin: 1.0rem 0rem 1.5rem;
   font-family: "Arial", sans-serif;
   font-size: 20px;
 }
 
 .car-shape {
-  flex: 1;
   position: relative;
-  height: 100vh;
   background: url(assets/images/ford.png);
   background-repeat: no-repeat;
   background-position: center right;
@@ -212,8 +204,6 @@
     rgba(31, 179, 237, 1) 11.2%,
     rgba(17, 106, 197, 1) 91.1%
   );
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .signup-button.btn.btn-primary {
@@ -270,7 +260,7 @@ ul li {
   height: 335px;
   overflow: visible;
   z-index: 1;
-  margin: 0 40px;
+  margin: 0 10px;
 }
 
 .vehicle-card:hover {
@@ -366,34 +356,3 @@ ul li {
   margin-left: 2px;
   font-weight: normal;
 }
-.btn-book {
-  display: block;
-  padding: 0 10px;
-  float: left;
-  font-size: 0.75rem;
-  font-family: "Helvetica", Arial, sans-serif;
-  text-decoration: none;
-  height: 30px;
-  width: 100px;
-  text-align: center;
-  border-radius: 2px;
-  font-weight: bold;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
-}
-.primary {
-  background-color: #1383b3;
-  color: #fff;
-  margin-right: 10px;
-  line-height: 30px;
-}
-.secondary {
-  background-color: #fff;
-  color: #1383b3;
-  border: 2px solid #1383b3;
-  line-height: 26px;
-}
-/*background: linear-gradient(135deg, #f75959 0%, #f35587 100%);*/
-
-/*background: linear-gradient(135deg, #f75959 0%, #f35587 100%);*/
