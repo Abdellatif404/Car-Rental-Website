@@ -1,12 +1,10 @@
 import {
   Button,
-  Container,
   Heading,
   HStack,
   Image,
   Text,
   Box,
-  VStack,
   Divider,
   SimpleGrid,
   GridItem,

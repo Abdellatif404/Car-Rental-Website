@@ -1,6 +1,7 @@
 import FormButton from "./form-button";
 
 const SignUpForm = () => {
+
   return (
     <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
       <form>
