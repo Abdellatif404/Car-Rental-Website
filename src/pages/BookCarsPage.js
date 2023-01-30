@@ -6,27 +6,35 @@ import CarCard from "../components/ui/car-card";
 function BookCars() {
   return (
     <>
-      <Header
-        component={
-          <>
-            <ul className="navbar-nav login-buttons d-flex flex-row">
-              <li className="nav-item mx-3">
-                <Link className="nav-link" to="/profile">
-                  <i className="fa fa-user fa-lg"></i>
-                </Link>
-              </li>
-              <li className="nav-item mx-3">
-                <Link className="nav-link" to="/login">
-                  <i className="logout-icon fa fa-sign-out fa-lg"></i>
-                </Link>
-              </li>
-            </ul>
-          </>
-        }
-      />
+      <Header>
+        <ul className="navbar-nav login-buttons d-flex flex-row">
+          <li className="nav-item mx-3">
+            <Link className="nav-link" to="/profile">
+              <i className="fa fa-user fa-lg"></i>
+            </Link>
+          </li>
+          <li className="nav-item mx-3">
+            <Link className="nav-link" to="/login">
+              <i className="logout-icon fa fa-sign-out fa-lg"></i>
+            </Link>
+          </li>
+        </ul>
+      </Header>
 
       <VStack>
-        <SimpleGrid columns={[1, 2, 3, 4]} rowGap={3} columnGap={3}>
+        <SimpleGrid columns={[1, 2, 3, 4]} position="absolute" rowGap={8} columnGap={8}>
+          <GridItem colSpan={1}>
+            <CarCard />
+          </GridItem>
+          <GridItem colSpan={1}>
+            <CarCard />
+          </GridItem>
+          <GridItem colSpan={1}>
+            <CarCard />
+          </GridItem>
+          <GridItem colSpan={1}>
+            <CarCard />
+          </GridItem>
           <GridItem colSpan={1}>
             <CarCard />
           </GridItem>
@@ -59,8 +67,6 @@ export default BookCars;
                 </li>
 
 */
-
-
 
 /*
 

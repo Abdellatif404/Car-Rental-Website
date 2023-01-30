@@ -164,106 +164,24 @@ body {
 
 /*The code below still not organized*/
 
-
-.title h1 {
-  font-weight: 600;
-  font-size: 50px;
-}
-.title span {
+ span {
   color: rgb(255, 191, 13);
 }
-.title p {
-    color: #495057;
-  margin: 1.0rem 0rem 1.5rem;
-  font-family: "Arial", sans-serif;
-  font-size: 20px;
-}
-
-.car-shape {
-  position: relative;
-  background: url(assets/images/ford.png);
-  background-repeat: no-repeat;
-  background-position: center right;
-  background-size: cover;
-}
-.car {
-  position: relative;
-  top: 50px;
-  right: 0px;
-  left: 0px;
-  width: 750px;
-}
-.shape {
-  position: absolute;
-  right: 60px;
-  height: 750px;
-  width: 600px;
-  border-radius: 30px 30px 0 0;
-  background: linear-gradient(
-    149deg,
-    rgba(31, 179, 237, 1) 11.2%,
-    rgba(17, 106, 197, 1) 91.1%
-  );
-}
-
-.signup-button.btn.btn-primary {
-  background: linear-gradient(
-    160deg,
-    rgba(246, 191, 13, 1) 0%,
-    rgba(249, 47, 47, 1) 200%
-  );
-  border: 1px solid rgb(255, 191, 13);
-}
-/*
-@media screen and (max-width: 650px) {
-  
-}
-
-
-
-@media screen and (max-width: 1024px) {
-    
-}
-
-@media screen and (max-width: 950px) {
-    
-}
-
-@media screen and (max-width: 480px) {
-    
-}
-
-*/
 
 /* BOOK CARS STYLES */
 
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700");
-ul {
-  margin: 0;
-  padding: 0;
-}
-ul li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.wrapper {
+/* .wrapper {
   display: flex;
   justify-content: center;
   margin: 50px 30px 0 30px;
   height: 1200px;
-}
+} */
 .vehicle-card {
   position: relative;
-  display: flex;
-  justify-content: center;
-  height: 335px;
-  overflow: visible;
-  z-index: 1;
-  margin: 0 10px;
 }
 
 .vehicle-card:hover {
+    display: block;
   z-index: 2;
   -webkit-transform: translate(0px, -10px);
   transform: translate(0, -10px);
@@ -275,7 +193,7 @@ ul li {
 
 .vehicle-card .details {
   position: relative;
-  height: 375px;
+  height: 365px;
   width: 330px;
   border-radius: 10px;
   overflow: hidden;
@@ -287,15 +205,10 @@ ul li {
   -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  height: 460px;
+  height: 455px;
   width: 330px;
 }
-.vehicle-card .info {
-  margin: 10px;
-}
-.vehicle-card .ctas {
-  margin: 10px 0;
-}
+
 .thumb-gallery {
   height: 215px;
 }
@@ -310,49 +223,4 @@ ul li {
   opacity: 0;
   -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-/*styling*/
-
-.vehicle-card h3 {
-  margin: 0;
-  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: -0.5px;
-}
-.vehicle-card .price span {
-  font-family: "Helvetica", Arial, sans-serif;
-  color: #999;
-  font-size: 0.75rem;
-}
-.vehicle-card .price h4 {
-  margin: 0;
-  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  color: #222;
-  font-size: 1.25rem;
-}
-.vehicle-card .specs {
-  border-top: 1px solid #dadada;
-  border-bottom: 1px solid #dadada;
-  margin: 15px 0;
-  padding: 10px 0;
-}
-.specs .spec {
-  display: inline-block;
-  margin-right: 10px;
-}
-.specs span {
-  font-family: "Helvetica", Arial, sans-serif;
-  color: #999;
-  font-size: 0.75rem;
-}
-.specs p {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0;
-}
-.specs p span {
-  font-size: 0.75rem;
-  margin-left: 2px;
-  font-weight: normal;
 }
