@@ -1,23 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo&family=Parisienne&family=Poppins:wght@200;300;400;500;600;700&family=Roboto&display=swap");
 
 * {
-    --white: #fff;
-    --blue-gradient: linear-gradient(
-        150deg,
-        rgba(31, 179, 237, 1) 10%,
-        rgba(17, 106, 197, 1) 90%
-      );
-      --orange-gradient: linear-gradient(
-        130deg,
-        rgba(246, 191, 13, 1) 0%,
-        rgba(249, 47, 47, 1) 150%
-      );
+  --white: #fff;
+  --blue-gradient: linear-gradient(
+    150deg,
+    rgba(31, 179, 237, 1) 10%,
+    rgba(17, 106, 197, 1) 90%
+  );
+  --orange-gradient: linear-gradient(
+    130deg,
+    rgba(246, 191, 13, 1) 0%,
+    rgba(249, 47, 47, 1) 150%
+  );
   font-family: Poppins;
 }
 
 body {
-    height: 100%;
-    background: #000;
+  height: 100%;
+  background: #000;
+}
+
+span {
+  color: rgb(255, 191, 13);
 }
 
 /*****************************/
@@ -32,8 +36,9 @@ body {
   font-size: 14px;
 }
 
-.btn-primary, .btn-secondary {
-    color: var(--white);
+.btn-primary,
+.btn-secondary {
+  color: var(--white);
   padding: 11px 16px;
   border: none;
   border-radius: 50px;
@@ -44,10 +49,11 @@ body {
 }
 
 .btn-secondary {
-    background: var(--orange-gradient);
+  background: var(--orange-gradient);
 }
 
-.btn-primary:hover, .btn-secondary:hover {
+.btn-primary:hover,
+.btn-secondary:hover {
   opacity: 0.9;
 }
 
@@ -74,8 +80,8 @@ body {
 }
 
 .logout-icon:hover {
-    color: #ed3a4f;
-    transition: all 0.2s linear;
+  color: #ed3a4f;
+  transition: all 0.2s linear;
 }
 
 /*****************************/
@@ -94,7 +100,7 @@ body {
 }
 
 .form-input:focus {
-    outline-color: #b3b9c0;
+  outline-color: #b3b9c0;
 }
 
 .form-input::placeholder {
@@ -107,7 +113,6 @@ body {
   width: 100%;
   margin-top: 2rem;
 }
-
 
 /*****************************/
 /* FORM SUBCARD STYLE */
@@ -133,7 +138,6 @@ body {
   background: var(--orange-gradient);
 }
 
-
 .subcard-btn-outline {
   position: relative;
   color: var(--white);
@@ -149,39 +153,23 @@ body {
 }
 
 .text-blue:hover {
-    color: #1383b3;
+  color: #1383b3;
 }
 
 .text-orange:hover {
-    color: orange;
+  color: orange;
 }
 
+/*****************************/
+/* BOOK CARS PAGE STYLES */
+/*****************************/
 
-
-
-
-
-
-/*The code below still not organized*/
-
- span {
-  color: rgb(255, 191, 13);
-}
-
-/* BOOK CARS STYLES */
-
-/* .wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 50px 30px 0 30px;
-  height: 1200px;
-} */
 .vehicle-card {
   position: relative;
 }
 
 .vehicle-card:hover {
-    display: block;
+  position: absolute;
   z-index: 2;
   -webkit-transform: translate(0px, -10px);
   transform: translate(0, -10px);
@@ -214,7 +202,6 @@ body {
 }
 .thumb-gallery img {
   position: absolute;
-  width: 100%;
 }
 .thumb-gallery img.first {
   opacity: 1;

@@ -22,9 +22,12 @@ function BookCars() {
       </Header>
 
       <VStack>
-        <SimpleGrid columns={[1, 2, 3, 4]} position="absolute" rowGap={8} columnGap={8}>
+        <SimpleGrid columns={[1, 1, 2, 2, 3]} rowGap={6} columnGap={8} p={10}>
           <GridItem colSpan={1}>
-            <CarCard />
+            <CarCard
+              img1="https://cdn.24.co.za/files/Cms/General/d/3089/b1cf3fb0a479438fabf174b092301c29.jpg"
+              img2="https://img.autotrader.co.za/17873025"
+            />
           </GridItem>
           <GridItem colSpan={1}>
             <CarCard />
