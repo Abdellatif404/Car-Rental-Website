@@ -74,6 +74,11 @@ function Home() {
           </Hide>
         </Flex>
       </Container>
+      <Box bottom={0} w="full" bg={"gray.50"} color={"gray.700"}>
+        <Container maxW={"6xl"} py={8}>
+          <Text>© Copyright. All rights reserved.</Text>
+        </Container>
+      </Box>
     </>
   );
 }

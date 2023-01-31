@@ -18,8 +18,8 @@ const NavbarLinks = () => {
           </Link>
         </li>
         <li className="nav-item mx-2">
-          <Link className="nav-link" to="#">
-            Contact
+          <Link className="nav-link" to="/dashboard">
+            Dashboard
           </Link>
         </li>
       </ul>

@@ -5,6 +5,9 @@ import Home from "./pages/HomePage";
 import BookCars from "./pages/BookCarsPage";
 
 import React from "react";
+import Rent from "./pages/RentPage";
+import Dashboard from "./pages/DashboardPage";
+import Profile from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cars" element={<BookCars />} />
+        <Route path="/rent" element={<Rent />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
