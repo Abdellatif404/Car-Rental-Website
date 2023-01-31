@@ -6,25 +6,23 @@ import { VStack, Box, Center } from "@chakra-ui/react";
 
 function SignUp() {
   return (
-    <>
-      <VStack h="100vh">
-        <Box alignSelf="start">
-          <Navbar />
-        </Box>
-        <Center flexGrow={1} p={[4, 4, 0]} mt={[4, 8, 16]}>
-          <Card>
-            <SubCard
-              textColor="text-orange"
-              bgColor="bg-secondary"
-              route="/login"
-              question="Already a user"
-              btnName="Log In"
-            />
-            <SignUpForm />
-          </Card>
-        </Center>
-      </VStack>
-    </>
+    <VStack h="100vh">
+      <Box alignSelf="start">
+        <Navbar />
+      </Box>
+      <Center flexGrow={1} p={[4, 4, 0]} mt={[4, 8, 16]}>
+        <Card>
+          <SubCard
+            textHoverColor="text-orange"
+            bgColor="bg-secondary"
+            route="/login"
+            question="Already a user"
+            btnText="Log In"
+          />
+          <SignUpForm />
+        </Card>
+      </Center>
+    </VStack>
   );
 }
 

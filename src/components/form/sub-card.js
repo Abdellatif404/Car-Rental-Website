@@ -1,22 +1,30 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 
-const LoginSubCard = ({textColor="", bgColor, question, route, btnName }) => {
+const SubCard = ({
+  textHoverColor = "",
+  bgColor,
+  question,
+  route,
+  btnText,
+}) => {
   return (
     <div
       className={
         bgColor +
-        " p-4 p-lg-5 text-white text-center d-flex align-items-center order-md-last"
+        " p-4 text-white text-center d-flex align-items-center order-md-last"
       }
     >
       <div className="p-lg-5 p-md-0 p-4 w-100">
-        <Heading fontFamily="" fontWeight="400" mb={3} w="full">Welcome to Locavo</Heading>
-        <p className="mb-4">{question}?</p>
-        <a href={route} className={textColor+" subcard-btn-outline"}>
-          {btnName}
+        <Heading fontFamily="" fontWeight="400" mb={3}>
+          Welcome to Locavo
+        </Heading>
+        <Text mb={6}>{question}?</Text>
+        <a href={route} className={textHoverColor + " subcard-btn-outline"}>
+          {btnText}
         </a>
       </div>
     </div>
   );
 };
 
-export default LoginSubCard;
+export default SubCard;

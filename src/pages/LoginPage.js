@@ -13,11 +13,11 @@ function Login() {
       <Center flexGrow={1} p={[4, 4, 0]} mt={[4, 8, 16]}>
         <Card>
           <SubCard
-            textColor="text-blue"
+            textHoverColor="text-blue"
             bgColor="bg-primary"
             route="/signup"
             question="Don't have an account"
-            btnName="Sign Up"
+            btnText="Sign Up"
           />
           <LoginForm />
         </Card>

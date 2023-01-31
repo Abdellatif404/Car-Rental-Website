@@ -1,7 +1,6 @@
 import FormButton from "./form-button";
 
 const SignUpForm = () => {
-
   return (
     <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
       <form>
@@ -54,7 +53,7 @@ const SignUpForm = () => {
           />
         </div>
         <div className="form-group">
-          <FormButton bgColor="btn-secondary" btnName="Create account" />
+          <FormButton bgColor="btn-secondary" btnText="Create account" />
         </div>
       </form>
     </div>

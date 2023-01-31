@@ -3,7 +3,6 @@ import SignUp from "./pages/SignUpPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/HomePage";
 import BookCars from "./pages/BookCarsPage";
-
 import React from "react";
 import Rent from "./pages/RentPage";
 import Dashboard from "./pages/DashboardPage";

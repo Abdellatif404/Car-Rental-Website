@@ -11,17 +11,8 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 
-const CarCard = ({
-  img1 = "https://www.razaoautomovel.com/wp-content/uploads/2021/11/Dacia-Duster-4x4-6-scaled_925x520_acf_cropped.jpg",
-  img2 = "https://www.topgear.com/sites/default/files/2022/12/Dacia-Duster-on-road-058.jpg",
-  brand = "Bugatti Chiron",
-  model = "2017",
-  price = "280",
-  gearbox = "automatic",
-  type = "petrol",
-  available = "yes",
-}) => {
-    const to_route = useNavigate();
+const CarCard = ( {props} ) => {
+  const to_route = useNavigate();
   const navigate = (route) => {
     to_route(route);
   };
@@ -29,20 +20,20 @@ const CarCard = ({
     <div className="vehicle-card">
       <div className="details">
         <div className="thumb-gallery">
-          <Box bg="red.400" w="full" h="full">
+          <Box bg="gray.400" w="full" h="full">
             <Image
               className="first"
               objectFit="cover"
               h={"215px"}
               w={"full"}
-              src={img1}
+              src={props.img1}
             ></Image>
             <Image
               className="second"
               objectFit="cover"
               h={"215px"}
               w={"full"}
-              src={img2}
+              src={props.img2}
             ></Image>
           </Box>
         </div>
@@ -50,19 +41,21 @@ const CarCard = ({
         <Box p={4}>
           <HStack alignItems="baseline" spacing={"auto"}>
             <Heading size={"md"} fontWeight="600">
-              {brand}
+              {props.brand}
             </Heading>
             <Heading size={"sm"} fontWeight="600">
-              {model}
+              {props.model}
             </Heading>
           </HStack>
           <HStack py={3}>
             <Heading size={"md"} fontWeight="600" color="gray.600">
-              ${price}
+              ${props.price}
             </Heading>
             <Text color="gray.400">/day</Text>
           </HStack>
-          <Button w="full" onClick={() => navigate("/rent")}>Rent now</Button>
+          <Button w="full" onClick={() => navigate("/rent")}>
+            Rent now
+          </Button>
           <Divider borderColor="gray.300" py={3} />
 
           <SimpleGrid columns={3} py={4} textAlign="center">
@@ -71,7 +64,7 @@ const CarCard = ({
                 Gearbox
               </Heading>
               <Text fontWeight="500" color="gray.600">
-                {gearbox}
+                {props.gearbox}
               </Text>
             </GridItem>
             <GridItem>
@@ -79,7 +72,7 @@ const CarCard = ({
                 Type
               </Heading>
               <Text fontWeight="500" color="gray.600">
-                {type}
+                {props.type}
               </Text>
             </GridItem>
             <GridItem>
@@ -87,7 +80,7 @@ const CarCard = ({
                 Available
               </Heading>
               <Text fontWeight="500" color="gray.600">
-                {available}
+                {props.available}
               </Text>
             </GridItem>
           </SimpleGrid>
@@ -101,11 +94,32 @@ const CarCard = ({
 
 export default CarCard;
 
+CarCard.defaultProps = {
+  img1: "",
+  img2: "",
+  brand: "Default brand",
+  model: "0000",
+  price: "000",
+  gearbox: "---",
+  type: "---",
+  available: "---",
+};
+/*
+{
+    img1,
+    img2,
+ = "Default",
+    model = "0000",
+    price = "000",
+    gearbox = "---",
+    type = "---",
+    available = "---",
+  }
+*/
+
 /*
 https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/03/2018-Bugatti-Chiron-119.jpg?crop=1xw:1xh;center,center&resize=480:*
 
 
 https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/03/2018-Bugatti-Chiron-117.jpg?crop=1xw:1xh;center,center&resize=480:*
 */
-
-

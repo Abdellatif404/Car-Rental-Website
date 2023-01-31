@@ -1,12 +1,75 @@
-import { GridItem, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { GridItem, SimpleGrid, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import Header from "../components/navbar/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import CarCard from "../components/ui/car-card";
 
 function BookCars() {
+  const fetchedData = [
+    {
+      img1: "https://cdn.24.co.za/files/Cms/General/d/3089/b1cf3fb0a479438fabf174b092301c29.jpg",
+      img2: "https://img.autotrader.co.za/17873025",
+      brand: "Cleo",
+      model: "2020",
+      price: "40",
+      gearbox: "manuel",
+      type: "diesel",
+      available: "no",
+    },
+    {
+      img1: "https://www.razaoautomovel.com/wp-content/uploads/2021/11/Dacia-Duster-4x4-6-scaled_925x520_acf_cropped.jpg",
+      img2: "https://www.topgear.com/sites/default/files/2022/12/Dacia-Duster-on-road-058.jpg",
+      brand: "Dacia duster",
+      model: "2021",
+      price: "80",
+      gearbox: "automatic",
+      type: "diesel",
+      available: "yes",
+    },
+    {
+      img1: "https://www.autoscout24.be/cms-content-assets/4fQU2L9IjLwNij7QB6gOiw-c5f49bec2d06453bbd255d318e9f48d9-renault-clio-back-1100.jpeg",
+      img2: "https://www.tz.de/bilder/2020/03/05/13575896/1458722285-renault-clio-macht-ganz-schoen-kann-auch-innenraum-ueberzeugen-2tfxSz5ldJea.jpg",
+      brand: "Renault clio",
+      model: "2019",
+      price: "60",
+      gearbox: "manuel",
+      type: "petrol",
+      available: "yes",
+    },
+    {
+      img1: "https://cdn.24.co.za/files/Cms/General/d/3089/b1cf3fb0a479438fabf174b092301c29.jpg",
+      img2: "https://img.autotrader.co.za/17873025",
+      brand: "Default brand",
+      model: "0000",
+      price: "000",
+      gearbox: "---",
+      type: "---",
+      available: "---",
+    },
+    {
+      img1: "https://cdn.24.co.za/files/Cms/General/d/3089/b1cf3fb0a479438fabf174b092301c29.jpg",
+      img2: "https://img.autotrader.co.za/17873025",
+      brand: "Default brand",
+      model: "0000",
+      price: "000",
+      gearbox: "---",
+      type: "---",
+      available: "---",
+    },
+    {
+      img1: "https://cdn.24.co.za/files/Cms/General/d/3089/b1cf3fb0a479438fabf174b092301c29.jpg",
+      img2: "https://img.autotrader.co.za/17873025",
+      brand: "Default brand",
+      model: "0000",
+      price: "000",
+      gearbox: "---",
+      type: "---",
+      available: "---",
+    },
+  ];
+
   return (
     <>
-      <Header>
+      <Navbar>
         <ul className="navbar-nav login-buttons d-flex flex-row">
           <li className="nav-item mx-3">
             <Link className="nav-link" to="/profile">
@@ -19,37 +82,17 @@ function BookCars() {
             </Link>
           </li>
         </ul>
-      </Header>
+      </Navbar>
 
       <VStack>
         <SimpleGrid columns={[1, 1, 2, 2, 3]} rowGap={6} columnGap={8} p={10}>
-          <GridItem colSpan={1}>
-            <CarCard
-              img1="https://cdn.24.co.za/files/Cms/General/d/3089/b1cf3fb0a479438fabf174b092301c29.jpg"
-              img2="https://img.autotrader.co.za/17873025"
-            />
-          </GridItem>
-          <GridItem colSpan={1}>
-            <CarCard />
-          </GridItem>
-          <GridItem colSpan={1}>
-            <CarCard />
-          </GridItem>
-          <GridItem colSpan={1}>
-            <CarCard />
-          </GridItem>
-          <GridItem colSpan={1}>
-            <CarCard />
-          </GridItem>
-          <GridItem colSpan={1}>
-            <CarCard />
-          </GridItem>
-          <GridItem colSpan={1}>
-            <CarCard />
-          </GridItem>
-          <GridItem colSpan={1}>
-            <CarCard />
-          </GridItem>
+          {fetchedData.map((carData) => {
+            return (
+              <GridItem colSpan={1}>
+                <CarCard props={carData} />
+              </GridItem>
+            );
+          })}
         </SimpleGrid>
       </VStack>
     </>
@@ -60,134 +103,6 @@ export default BookCars;
 
 /*
 
-<li className="nav-item">
-                  <a className="nav-link" href="#">
-                    <span className="badge badge-pill bg-danger">1</span>
-                    <span>
-                      <i className="fa fa-shopping-cart"></i>
-                    </span>
-                  </a>
-                </li>
 
-*/
-
-/*
-
-<div className="wrapper">
-        <div className="vehicle-card">
-          <div className="details">
-            <div className="thumb-gallery">
-              <img
-                className="first"
-                src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/06/2018-Ferrari-812-Superfast-115.jpg?crop=1xw:1xh;center,center&resize=480:*"
-              />
-              <img
-                className="second"
-                src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/06/2018-Ferrari-812-Superfast-101.jpg?crop=1xw:1xh;center,center&resize=480:*"
-              />
-            </div>
-            <div className="info">
-              <h3>Bugatti Chiron</h3>
-
-              <div className="price">
-                <span>Price Starting at</span>
-                <h4>$2,998,000</h4>
-              </div>
-              <div className="ctas">
-                <a href="#" className="btn-book primary">
-                  Model Details
-                </a>
-                <a href="#" className="btn-book secondary">
-                  Cars for Sale
-                </a>
-                <div style={{ clear: "both" }}></div>
-              </div>
-              <div className="specs">
-                <div className="spec mpg">
-                  <span>EPA City/Hwy</span>
-                  <p>
-                    9/14
-                    <span />
-                    mpg
-                  </p>
-                </div>
-                <div className="spec mpg">
-                  <span>0-60</span>
-                  <p>
-                    2.3
-                    <span />
-                    sec
-                  </p>
-                </div>
-                <div className="spec mpg">
-                  <span>Horsepower</span>
-                  <p>
-                    1500
-                    <span />
-                    hp
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="vehicle-card">
-          <div className="details">
-            <div className="thumb-gallery">
-              <img
-                className="first"
-                src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/09/2018-Mercedes-AMG-GT-GTC-116.jpg?crop=1xw:1xh;center,center&resize=480:*"
-              />
-              <img
-                className="second"
-                src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/09/2018-Mercedes-AMG-GT-GTC-114.jpg?crop=1xw:1xh;center,center&resize=480:*"
-              />
-            </div>
-            <div className="info">
-              <h3>Bugatti Chiron</h3>
-
-              <div className="price">
-                <span>Price Starting at</span>
-                <h4>$2,998,000</h4>
-              </div>
-              <div className="ctas">
-                <a href="#" className="btn-book primary">
-                  Model Details
-                </a>
-                <a href="#" className="btn-book secondary">
-                  Cars for Sale
-                </a>
-                <div style={{ clear: "both" }}></div>
-              </div>
-              <div className="specs">
-                <div className="spec mpg">
-                  <span>EPA City/Hwy</span>
-                  <p>
-                    9/14
-                    <span />
-                    mpg
-                  </p>
-                </div>
-                <div className="spec mpg">
-                  <span>0-60</span>
-                  <p>
-                    2.3
-                    <span />
-                    sec
-                  </p>
-                </div>
-                <div className="spec mpg">
-                  <span>Horsepower</span>
-                  <p>
-                    1500
-                    <span />
-                    hp
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
 */
