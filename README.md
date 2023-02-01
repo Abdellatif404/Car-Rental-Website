@@ -1,7 +1,8 @@
-<!--
-<img alt="Alt text" src="public/assets/images/homepage.png"><br/><br/><br/>
 
-<img alt="Alt text" src="public/assets/images/loginpage.png"><br/><br/><br/>
+<img alt="Home page" src="public/assets/images/home_page.png"><br/><br/><br/>
 
-<img alt="Alt text" src="public/assets/images/signuppage.png">
--->
+<img alt="Login page" src="public/assets/images/login_page.png"><br/><br/><br/>
+
+<img alt="SignUp page" src="public/assets/images/signup_page.png"><br/><br/><br/>
+
+<img alt="Cars page" src="public/assets/images/cars_page.png">

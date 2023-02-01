@@ -11,7 +11,7 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 
-const CarCard = ( {props} ) => {
+const CarCard = ({ props }) => {
   const to_route = useNavigate();
   const navigate = (route) => {
     to_route(route);
@@ -104,22 +104,3 @@ CarCard.defaultProps = {
   type: "---",
   available: "---",
 };
-/*
-{
-    img1,
-    img2,
- = "Default",
-    model = "0000",
-    price = "000",
-    gearbox = "---",
-    type = "---",
-    available = "---",
-  }
-*/
-
-/*
-https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/03/2018-Bugatti-Chiron-119.jpg?crop=1xw:1xh;center,center&resize=480:*
-
-
-https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/wp-content/uploads/2017/03/2018-Bugatti-Chiron-117.jpg?crop=1xw:1xh;center,center&resize=480:*
-*/

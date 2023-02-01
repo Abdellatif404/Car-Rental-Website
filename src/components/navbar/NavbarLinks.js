@@ -7,7 +7,7 @@ const NavbarLinks = () => {
         Locavo
       </Link>
       <ul className="navbar-nav">
-        <li className="nav-item mx-3">
+        <li className="nav-item mx-2">
           <Link className="nav-link" to="/">
             Home
           </Link>

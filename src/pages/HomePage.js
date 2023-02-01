@@ -1,16 +1,10 @@
 import Navbar from "../components/navbar/Navbar";
 import NavbarLoginButtons from "../components/navbar/navbar-login-buttons";
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Hide,
-  Image,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Container, Flex, VStack } from "@chakra-ui/react";
+import Footer from "../components/navbar/Footer";
+import HomePageButton from "../components/ui/home-page-button";
+import HomePageText from "../components/ui/home-page-text";
+import HomePageImage from "../components/ui/home-page-image";
 
 function Home() {
   return (
@@ -18,95 +12,24 @@ function Home() {
       <Navbar>
         <NavbarLoginButtons />
       </Navbar>
-      <Container maxWidth="1720px" px={[12, 8, 8]}>
-        <Flex h="100vh" gap={5} direction={{ base: "column", md: "row" }}>
+      <Container overflow="hidden" maxWidth="1720px" px={[12, 8, 8]}>
+        <Flex h="100vh" rowGap={4} direction={"row"}>
           <VStack
             alignItems="start"
             justifyContent="center"
             spacing={7}
-            px={[0, 12, 4]}
+            px={[0, 12, 4, 8]}
             h="full"
-            w="full"
           >
-            <Heading size={["2xl", "3xl", "2xl"]}>
-              <span>Rent a car</span> and find great deals with us
-            </Heading>
-            <Box pr={"10%"}>
-              <Text>
-                Choose from a collection of brand new cars, low prices are part
-                of our every day offer.
-              </Text>
-            </Box>
-
-            <Button
-              _hover={{ opacity: "0.9" }}
-              w="70%"
-              fontSize="15px"
-              fontWeight="400"
-              color="white"
-              bg="var(--orange-gradient)"
-              borderRadius="50px"
-              py="25px"
-            >
-              Book online now!
-            </Button>
+            <HomePageText />
+            <HomePageButton />
           </VStack>
-          <Hide below="md">
-            <Flex alignItems="center" position="relative">
-              <Box
-                position="absolute"
-                alignItems="center"
-                borderRadius="2xl"
-                bg="var(--blue-gradient)"
-                top={0}
-                bottom={0}
-                h={{ md: "600px", lg: "800" }}
-                w="90%"
-                right={0}
-              ></Box>
-              <Image
-                src="assets/images/ford.webp"
-                top="5vh"
-                position="relative"
-                maxW="50vw"
-              />
-            </Flex>
-          </Hide>
+          <HomePageImage />
         </Flex>
       </Container>
-      <Box bottom={0} w="full" bg={"gray.50"} color={"gray.700"}>
-        <Container maxW={"6xl"} py={8}>
-          <Text>© Copyright. All rights reserved.</Text>
-        </Container>
-      </Box>
+      <Footer />
     </>
   );
 }
 
 export default Home;
-
-/*
-
-<Hide below="lg">
-            <Flex alignItems="center" position="relative">
-              <Box
-                position="absolute"
-                alignItems="center"
-                borderRadius="2xl"
-                bg="var(--blue-gradient)"
-                top={0}
-                bottom={0}
-                h="100%"
-                w="90%"
-                right={0}
-              ></Box>
-              <Image
-                src="assets/images/ford.webp"
-                top="5vh"
-                position="relative"
-                maxW="50vw"
-              />
-            </Flex>
-          </Hide>
-
-*/
