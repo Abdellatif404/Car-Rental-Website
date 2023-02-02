@@ -7,6 +7,7 @@ import HomePageText from "../components/ui/home-page-text";
 import HomePageImage from "../components/ui/home-page-image";
 
 function Home() {
+  
   return (
     <>
       <Navbar>
