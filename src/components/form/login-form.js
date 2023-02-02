@@ -1,6 +1,5 @@
 import FormButton from "./form-button";
 
-
 const LoginForm = () => {
   return (
     <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
@@ -19,7 +18,6 @@ const LoginForm = () => {
         </div>
 
         <div className="form-group mb-3">
-
           <label className="form-label" htmlFor="password">
             Password
           </label>
@@ -27,14 +25,13 @@ const LoginForm = () => {
             className="form-input"
             type="password"
             id="password"
-
             placeholder="Password"
             required
           />
         </div>
 
         <div className="form-group">
-          <FormButton btnName="Sign In" />
+          <FormButton bgColor="btn-primary" btnText="Sign In" />
         </div>
       </form>
     </div>

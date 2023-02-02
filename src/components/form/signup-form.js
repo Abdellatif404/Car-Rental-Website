@@ -1,57 +1,59 @@
 import FormButton from "./form-button";
 
 const SignUpForm = () => {
-
   return (
-    <div className="login-wrap p-4 p-lg-5">
-      <form action="#" className="signin-form">
+    <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
+      <form>
         <div className="form-group mb-3">
-          <label className="label" htmlFor="fullname">
+          <label className="form-label" htmlFor="fullname">
             Fullname
           </label>
           <input
+            className="form-input"
             type="text"
-            className="form-control"
+            id="fullname"
             placeholder="Fullname"
             required
           />
         </div>
         <div className="form-group mb-3">
-          <label className="label" htmlFor="phone">
+          <label className="form-label" htmlFor="tel">
             Phone number
           </label>
           <input
+            className="form-input"
             type="tel"
-            className="form-control"
+            id="tel"
             placeholder="Phone number"
             required
           />
         </div>
-
         <div className="form-group mb-3">
-          <label className="label" htmlFor="email">
+          <label className="form-label" htmlFor="email">
             Email
           </label>
           <input
+            className="form-input"
             type="text"
-            className="form-control"
+            id="email"
             placeholder="Email"
             required
           />
         </div>
         <div className="form-group mb-3">
-          <label className="label" htmlFor="password">
+          <label className="form-label" htmlFor="password">
             Password
           </label>
           <input
+            className="form-input"
             type="password"
-            className="form-control"
+            id="password"
             placeholder="Password"
             required
           />
         </div>
         <div className="form-group">
-          <FormButton styleClass="signup-button" btnMsg="Create account" />
+          <FormButton bgColor="btn-secondary" btnText="Create account" />
         </div>
       </form>
     </div>

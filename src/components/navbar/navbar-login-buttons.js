@@ -10,7 +10,6 @@ const NavbarLoginButtons = () => {
       <button
         type="button"
         className="btn-outline-secondary px-3 me-2"
-        
         onClick={() => navigate("/login")}
       >
         Login

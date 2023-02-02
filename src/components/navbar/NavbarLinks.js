@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NavbarLinks = () => {
   return (
     <div className="collapse navbar-collapse mt-lg-0 mt-4" id="navbarLinks">
-      <Link className="navbar-brand " to="#">
+      <Link className="navbar-brand" to="#">
         Locavo
       </Link>
       <ul className="navbar-nav">
@@ -13,13 +13,13 @@ const NavbarLinks = () => {
           </Link>
         </li>
         <li className="nav-item mx-2">
-          <Link className="nav-link" to="/book_cars">
+          <Link className="nav-link" to="/cars">
             Book Cars
           </Link>
         </li>
         <li className="nav-item mx-2">
-          <Link className="nav-link" to="#">
-            Contact
+          <Link className="nav-link" to="/dashboard">
+            Dashboard
           </Link>
         </li>
       </ul>
