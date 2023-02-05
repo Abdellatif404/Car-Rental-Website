@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use DB;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
+    public function signup(Request $request)
     {
-
         $validated = $request->validate([
             'firstname' => 'required|min:2|max:20',
             'lastname' => 'required|min:2|max:20',
@@ -25,8 +25,18 @@ class UserController extends Controller
                 'email'=>$request->input('email'),
                 'password'=>$request->input('password')
             ]);
+        }    
+    }
 
-        }
-    
+    public function login(Request $request) {
+
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $user = User::where('email', $email)->value('password');
+
+        if (!$user) 
+            return response()->json(['success'=>false, 'message' => 'Login Fail, no matches in our database']);
+
+        return response()->json(['success'=>true,'message'=>'We\'ve found a match', 'data' => $user],200);
     }
 }

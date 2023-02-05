@@ -33,6 +33,10 @@ const SignUpForm = () => {
 
     const passwordRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
+    /*
+    Check if the password matching the regex above, if it does then crypt the password
+     and send it through post request to laravel api.
+    */
     if (password.current.value.match(passwordRegEx)) {
       const hashedPassword = bcrypt.hashSync(password.current.value);
       axios
