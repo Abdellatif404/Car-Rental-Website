@@ -12,6 +12,16 @@ const SignUpForm = () => {
     to_route(route);
   };
 
+  const toastMessage = (message, type = "error", title = "Error occured.") => {
+    return toast({
+      title: title,
+      description: message,
+      status: type,
+      duration: 4000,
+      isClosable: true,
+    });
+  };
+
   const firstname = useRef();
   const lastname = useRef();
   const telephone = useRef();
@@ -21,35 +31,34 @@ const SignUpForm = () => {
   const onSubmitButton = (e) => {
     e.preventDefault();
 
-    const hashedPassword = bcrypt.hashSync(password.current.value);
+    const passwordRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-    axios
-      .post("http://127.0.0.1:8000/api/signup", {
-        firstname: firstname.current.value,
-        lastname: lastname.current.value,
-        telephone: telephone.current.value,
-        email: email.current.value,
-        password: hashedPassword,
-      })
-      .then(function () {
-        toast({
-          title: "Account created.",
-          description: "We've created your account for you.",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
+    if (password.current.value.match(passwordRegEx)) {
+      const hashedPassword = bcrypt.hashSync(password.current.value);
+      axios
+        .post("http://127.0.0.1:8000/api/signup", {
+          firstname: firstname.current.value,
+          lastname: lastname.current.value,
+          telephone: telephone.current.value,
+          email: email.current.value,
+          password: hashedPassword,
+        })
+        .then(function () {
+          toastMessage(
+            "We've created your account for you.",
+            "success",
+            "Account created."
+          );
+          navigate("/cars");
+        })
+        .catch(function (error) {
+          toastMessage(error.response.data.message);
         });
-        navigate("/");
-      })
-      .catch(function (error) {
-        toast({
-          title: "Error occured.",
-          description: error.response.data.message,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-      });
+    } else {
+      toastMessage(
+        "Password must be minimum 8 characters, at least 1 letter and 1 number."
+      );
+    }
   };
 
   return (
