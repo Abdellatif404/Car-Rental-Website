@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('signup', [UserController::class, 'signup'])->middleware('cors');
+Route::post('signup', [UserController::class, 'signup']);
 
-Route::post('login', [UserController::class, 'login'])->middleware('cors');
+Route::post('login', [UserController::class, 'login']);
