@@ -1,4 +1,3 @@
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import {
   Box,
   Container,
@@ -6,18 +5,16 @@ import {
   List,
   ListItem,
   TableContainer,
-  TableCaption,
   Thead,
   Table,
   Tr,
   Th,
   Td,
   Tbody,
-  Tfoot,
   IconButton,
-  Spacer,
   Heading,
 } from "@chakra-ui/react";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 
 function Dashboard() {
   return (

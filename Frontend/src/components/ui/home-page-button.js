@@ -10,16 +10,13 @@ const HomePageButton = () => {
     <Button
       onClick={() => navigate("/cars")}
       _hover={{
-        transition: "background-color 0.3s linear",
-        bg: "orange",
-        color: "white",
+        opacity: "0.9",
       }}
-      transition="background-color 0.2s linear"
       w="60%"
       fontSize="16px"
       fontWeight="500"
-      color="gray.600"
-      bg={"gray.50"}
+      bg="orange"
+      color="white"
       boxShadow="0px 5px 8px 0px rgba(0,0,0, 0.1)"
       borderRadius="50px"
       py="27px"

@@ -1,8 +1,8 @@
+import { VStack, Box, Center } from "@chakra-ui/react";
+import Navbar from "../components/navbar/Navbar";
 import Card from "../components/form/card";
 import SubCard from "../components/form/sub-card";
 import SignUpForm from "../components/form/signup-form";
-import Navbar from "../components/navbar/Navbar";
-import { VStack, Box, Center } from "@chakra-ui/react";
 
 function SignUp() {
   return (

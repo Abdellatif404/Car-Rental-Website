@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import {
   Button,
   Heading,
@@ -10,6 +9,7 @@ import {
   SimpleGrid,
   GridItem,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const CarCard = ({ props }) => {
   const to_route = useNavigate();

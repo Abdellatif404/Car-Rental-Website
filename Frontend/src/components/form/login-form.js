@@ -1,9 +1,9 @@
-import FormButton from "./form-button";
-import { useRef } from "react";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import axios from "axios";
 import bcrypt from "bcryptjs";
+import FormButton from "./form-button";
 
 const LoginForm = () => {
   const toast = useToast();
@@ -51,7 +51,7 @@ const LoginForm = () => {
           }
         });
     } catch (e) {
-      toastMessage("Something wrong.");
+      toastMessage("Wrong Email try again.");
     }
   }
 

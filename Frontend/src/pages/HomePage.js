@@ -1,13 +1,12 @@
+import { Container, Flex, VStack } from "@chakra-ui/react";
 import Navbar from "../components/navbar/Navbar";
 import NavbarLoginButtons from "../components/navbar/navbar-login-buttons";
-import { Container, Flex, VStack } from "@chakra-ui/react";
-import Footer from "../components/navbar/Footer";
-import HomePageButton from "../components/ui/home-page-button";
 import HomePageText from "../components/ui/home-page-text";
+import HomePageButton from "../components/ui/home-page-button";
 import HomePageImage from "../components/ui/home-page-image";
+import Footer from "../components/navbar/Footer";
 
 function Home() {
-  
   return (
     <>
       <Navbar>

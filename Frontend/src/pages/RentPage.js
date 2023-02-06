@@ -1,19 +1,15 @@
 import {
-  Card,
   Center,
-  FormControl,
   FormLabel,
   Input,
   HStack,
   Box,
   Button,
   Image,
-  Badge,
   VStack,
   Text,
   Heading,
   Spacer,
-  Flex,
 } from "@chakra-ui/react";
 
 function Rent() {
@@ -46,20 +42,15 @@ function Rent() {
               <Text>Your final price is: </Text>
               <Spacer />
               <Text
-              color="gray.600"
+                color="gray.600"
                 fontSize="2xl"
-                fontWeight={["bold", , "extrabold"]}
+                fontWeight={["bold", "extrabold"]}
               >
-                $500</Text>
-                <Text
-                  ml={2}
-                  fontSize="xl"
-                  fontWeight="medium"
-                  color="gray.500"
-                >
-                  USD
-                </Text>
-              
+                $500
+              </Text>
+              <Text ml={2} fontSize="xl" fontWeight="medium" color="gray.500">
+                USD
+              </Text>
             </HStack>
             <Button w={"full"}>Confirm rent</Button>
           </VStack>

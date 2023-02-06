@@ -1,4 +1,3 @@
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import {
   Box,
   Container,
@@ -13,36 +12,28 @@ import {
   VStack,
   FormLabel,
   Input,
-  Text,
   Button,
-  Spacer,
   Heading,
   Center,
+  Spacer,
+  Divider,
+  Text,
 } from "@chakra-ui/react";
+import ProfileDrawer from "../components/ui/profile-drawer";
 
 function Profile() {
   return (
-    <Container h="100vh" maxW="100vw" p={0}>
-      <HStack h={"full"} spacing="0">
-        <Box bg={"gray.50"} px="10" py={"25vh"} h={"full"} w={"30%"}>
-          <VStack alignItems={"start"} spacing={"3"}>
-            <Heading fontWeight={"400"}>Your Profile</Heading>
-            <FormLabel>Prenom</FormLabel>
-            <Input type={"text"} />
-            <FormLabel>Nom</FormLabel>
-            <Input type={"text"} />
-            <FormLabel>Email</FormLabel>
-            <Input type={"email"} />
-
-            <Button colorScheme={"green"} w={"full"}>
-              Save
-            </Button>
-          </VStack>
-        </Box>
-        <Box h={"full"} w={"full"}>
-          <Center h={"full"}>
+    <Container h="100vh" maxW="100vw" py={20}>
+      <VStack>
+        <Box w={"90%"}>
+          <HStack>
+            <Heading size={['lg', 'xl']}>List of all your rentals</Heading>
+            <Spacer />
+            <ProfileDrawer />
+          </HStack>
+          <Divider my={5}/>
           <TableContainer>
-            <Table variant="striped">
+            <Table variant="striped" size={['md','md','lg']}>
               <Thead>
                 <Tr>
                   <Th>brand</Th>
@@ -112,9 +103,8 @@ function Profile() {
               </Tbody>
             </Table>
           </TableContainer>
-          </Center>
         </Box>
-      </HStack>
+      </VStack>
     </Container>
   );
 }

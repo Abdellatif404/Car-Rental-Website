@@ -1,8 +1,8 @@
 import { GridItem, SimpleGrid, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import Footer from "../components/navbar/Footer";
 import Navbar from "../components/navbar/Navbar";
 import CarCard from "../components/ui/car-card";
+import Footer from "../components/navbar/Footer";
 
 function BookCars() {
   const fetchedData = [

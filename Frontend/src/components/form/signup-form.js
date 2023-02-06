@@ -1,9 +1,9 @@
-import FormButton from "./form-button";
-import axios from "axios";
-import bcrypt from "bcryptjs";
 import { useRef } from "react";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import bcrypt from "bcryptjs";
+import FormButton from "./form-button";
 
 const SignUpForm = () => {
   const toast = useToast();
@@ -53,7 +53,7 @@ const SignUpForm = () => {
             "success",
             "Account created."
           );
-          navigate("/cars");
+          navigate("/login");
         })
         .catch(function (error) {
           toastMessage(error.response.data.message);
