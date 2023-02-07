@@ -19,21 +19,21 @@ const CarCard = ({ props }) => {
   return (
     <div className="vehicle-card">
       <div className="details">
-        <div className="thumb-gallery">
+        <div className="thumb-gallery">`
           <Box bg="gray.400" w="full" h="full">
             <Image
               className="first"
               objectFit="cover"
               h={"215px"}
               w={"full"}
-              src={props.img1}
+              src={props.photo1}
             ></Image>
             <Image
               className="second"
               objectFit="cover"
               h={"215px"}
               w={"full"}
-              src={props.img2}
+              src={props.photo2}
             ></Image>
           </Box>
         </div>
@@ -72,7 +72,7 @@ const CarCard = ({ props }) => {
                 Type
               </Heading>
               <Text fontWeight="500" color="gray.600">
-                {props.type}
+                {props.fuel_type}
               </Text>
             </GridItem>
             <GridItem>

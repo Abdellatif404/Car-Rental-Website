@@ -48,17 +48,17 @@ function ProfileDrawer() {
             <Stack spacing="24px">
               <Box>
                 <FormLabel htmlFor="firstname">Firstname</FormLabel>
-                <Input ref={firstField} id="firstname" value={"Abdellatif"} />
+                <Input ref={firstField} id="firstname"/>
               </Box>
 
               <Box>
                 <FormLabel htmlFor="lastname">Lastname</FormLabel>
-                <Input id="lastname" value={"Elbouziady"} />
+                <Input id="lastname"/>
               </Box>
 
               <Box>
                 <FormLabel htmlFor="username">Phone number</FormLabel>
-                <Input id="tel" value={"0645454545"} />
+                <Input id="tel"/>
               </Box>
             </Stack>
           </DrawerBody>

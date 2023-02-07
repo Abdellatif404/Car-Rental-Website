@@ -10,7 +10,7 @@ function SignUp() {
       <Box alignSelf="start">
         <Navbar />
       </Box>
-      <Center flexGrow={1} p={[4, 4, 0]} mt={[4, 8, 16]}>
+      <Center flexGrow={1} p={4}>
         <Card>
           <SubCard
             textHoverColor="text-orange"
