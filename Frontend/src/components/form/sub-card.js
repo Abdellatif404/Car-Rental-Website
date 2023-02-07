@@ -1,4 +1,5 @@
 import { Heading, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const SubCard = ({
   textHoverColor = "",
@@ -19,9 +20,10 @@ const SubCard = ({
           Welcome to Locavo
         </Heading>
         <Text mb={6}>{question}?</Text>
-        <a href={route} className={textHoverColor + " subcard-btn-outline"}>
+        
+        <Link to={route} className={textHoverColor + " subcard-btn-outline"}>
           {btnText}
-        </a>
+        </Link>
       </div>
     </div>
   );

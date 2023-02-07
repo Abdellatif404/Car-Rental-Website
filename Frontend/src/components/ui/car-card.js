@@ -19,7 +19,7 @@ const CarCard = ({ props }) => {
   return (
     <div className="vehicle-card">
       <div className="details">
-        <div className="thumb-gallery">`
+        <div className="thumb-gallery">
           <Box bg="gray.400" w="full" h="full">
             <Image
               className="first"
@@ -53,7 +53,7 @@ const CarCard = ({ props }) => {
             </Heading>
             <Text color="gray.400">/day</Text>
           </HStack>
-          <Button w="full" onClick={() => navigate("/rent")}>
+          <Button w="full" onClick={() => navigate(`/rent/${props.id}`)}>
             Rent now
           </Button>
           <Divider borderColor="gray.300" py={3} />
@@ -80,7 +80,7 @@ const CarCard = ({ props }) => {
                 Available
               </Heading>
               <Text fontWeight="500" color="gray.600">
-                {props.available}
+                {props.available ? "yes" : "no"}
               </Text>
             </GridItem>
           </SimpleGrid>

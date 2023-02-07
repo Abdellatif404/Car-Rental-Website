@@ -18,7 +18,6 @@ function BookCars() {
 
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/cars").then(function (response) {
-      console.log(response.data.data, "axios");
       setCars(response.data.data);
       setLoading(false);
     });

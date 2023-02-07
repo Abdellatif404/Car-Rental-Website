@@ -16,9 +16,10 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cars" element={<BookCars />} />
-        <Route path="/rent" element={<Rent />} />
+        <Route path="/rent/:id" element={<Rent />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={"404"} />
       </Routes>
     </BrowserRouter>
   );
