@@ -1,58 +1,52 @@
-import {
-  Center,
-  GridItem,
-  SimpleGrid,
-  Spinner,
-  VStack,
-} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Button, GridItem, HStack, SimpleGrid, VStack } from "@chakra-ui/react";
+import { MdAccountCircle, MdLogout } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar/Navbar";
 import CarCard from "../components/ui/car-card";
 import Footer from "../components/navbar/Footer";
+import LoadingSpinner from "../components/ui/loading-spinner";
+
 
 function BookCars() {
+  const navigation = useNavigate();
+  const navigate = (route) => navigation(route);
   const [cars, setCars] = useState();
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/cars").then(function (response) {
+    axios.get("http://127.0.0.1:8000/api/cars").then((response) => {
       setCars(response.data.data);
       setLoading(false);
     });
   }, []);
 
-  if (isLoading) {
-    return (
-      <Center>
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
-        Loading...
-      </Center>
-    );
-  }
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <>
       <Navbar>
-        <ul className="navbar-nav login-buttons d-flex flex-row">
-          <li className="nav-item mx-3">
-            <Link className="nav-link" to="/profile">
-              <i className="fa fa-user fa-lg"></i>
-            </Link>
-          </li>
-          <li className="nav-item mx-3">
-            <Link className="nav-link" to="/login">
-              <i className="logout-icon fa fa-sign-out fa-lg"></i>
-            </Link>
-          </li>
-        </ul>
+        <HStack position={"absolute"} right={0} top={3}>
+          <Button
+            color={"gray.600"}
+            colorScheme={"blackAlpha"}
+            variant="ghost"
+            leftIcon={<MdAccountCircle color="gray" />}
+            onClick={() => navigate("/profile")}
+          >
+            Profile
+          </Button>
+          <Button
+            color={"gray.600"}
+            colorScheme={"blackAlpha"}
+            variant="ghost"
+            leftIcon={<MdLogout color="gray" />}
+            onClick={() => navigate("/login")}
+          >
+            Logout
+          </Button>
+        </HStack>
       </Navbar>
 
       <VStack>

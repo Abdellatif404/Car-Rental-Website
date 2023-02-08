@@ -26,4 +26,4 @@ Route::post('login', [UserController::class, 'login']);
 
 Route::get('cars', [CarController::class, 'index']);
 
-Route::get('rent/{id}', [CarController::class, 'show']);
+Route::get('cars/{id}', [CarController::class, 'show']);

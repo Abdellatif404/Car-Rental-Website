@@ -53,7 +53,7 @@ const CarCard = ({ props }) => {
             </Heading>
             <Text color="gray.400">/day</Text>
           </HStack>
-          <Button w="full" onClick={() => navigate(`/rent/${props.id}`)}>
+          <Button w="full" onClick={() => navigate(`/cars/${props.id}`)}>
             Rent now
           </Button>
           <Divider borderColor="gray.300" py={3} />

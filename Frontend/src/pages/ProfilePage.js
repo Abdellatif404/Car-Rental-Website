@@ -10,14 +10,9 @@ import {
   Td,
   Tbody,
   VStack,
-  FormLabel,
-  Input,
-  Button,
   Heading,
-  Center,
   Spacer,
   Divider,
-  Text,
 } from "@chakra-ui/react";
 import ProfileDrawer from "../components/ui/profile-drawer";
 
@@ -27,13 +22,13 @@ function Profile() {
       <VStack>
         <Box w={"90%"}>
           <HStack>
-            <Heading size={['lg', 'xl']}>List of all your rentals</Heading>
+            <Heading size={["lg", "xl"]}>List of all your rentals</Heading>
             <Spacer />
             <ProfileDrawer />
           </HStack>
-          <Divider my={5}/>
+          <Divider my={5} />
           <TableContainer>
-            <Table variant="striped" size={['md','md','lg']}>
+            <Table variant="striped" size={["md", "md", "lg"]}>
               <Thead>
                 <Tr>
                   <Th>brand</Th>

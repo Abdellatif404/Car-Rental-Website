@@ -4,17 +4,12 @@ import { useRef } from "react";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 import FormButton from "./form-button";
+import FormInput from "./form-input";
 
 const LoginForm = () => {
+  const navigation = useNavigate();
+  const navigate = (route) => navigation(route);
   const toast = useToast();
-  const email = useRef();
-  const password = useRef();
-
-  const to_route = useNavigate();
-  const navigate = (route) => {
-    to_route(route);
-  };
-
   const toastMessage = (message, type = "error", title = "Error occured.") => {
     return toast({
       title: title,
@@ -25,70 +20,42 @@ const LoginForm = () => {
     });
   };
 
-  async function onSubmitButton(e) {
+  const email = useRef();
+  const password = useRef();
+
+  function Login(e) {
     e.preventDefault();
 
-    try {
-      await axios
-        .post("http://127.0.0.1:8000/api/login", {
-          email: email.current.value,
-        })
-        .then(function (response) {
-          const verifyPassword = bcrypt.compareSync(
-            password.current.value,
-            response.data.data
+    axios
+      .post("http://127.0.0.1:8000/api/login", {
+        email: email.current.value,
+      })
+      .then((response) => {
+        const verifyPassword = bcrypt.compareSync(
+          password.current.value,
+          response.data.data
+        );
+        if (verifyPassword) {
+          toastMessage(
+            "You've logged in successfully.",
+            "success",
+            "Welcome again."
           );
-          console.log(verifyPassword);
-          if (verifyPassword) {
-            toastMessage(
-              "You've logged in successfully.",
-              "success",
-              "Welcome again."
-            );
-            navigate("/cars");
-          } else {
-            toastMessage("Wrong password try again.");
-          }
-        });
-    } catch (e) {
-      toastMessage("Wrong Email try again.");
-    }
+          navigate("/cars");
+        } else {
+          toastMessage("Wrong password try again.");
+        }
+      })
+      .catch(() => toastMessage("Wrong Email try again."));
   }
 
   return (
     <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
-      <form onSubmit={onSubmitButton}>
-        <div className="form-group mb-3">
-          <label className="form-label" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="email"
-            placeholder="Email"
-            required
-            ref={email}
-          />
-        </div>
+      <form onSubmit={Login}>
+        <FormInput name="email" type="email" refe={email} />
+        <FormInput name="password" type="password" refe={password} />
 
-        <div className="form-group mb-3">
-          <label className="form-label" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="form-input"
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-            ref={password}
-          />
-        </div>
-
-        <div className="form-group">
-          <FormButton bgColor="btn-primary" btnText="Sign In" />
-        </div>
+        <FormButton bgColor="btn-primary" btnText="Sign In" />
       </form>
     </div>
   );

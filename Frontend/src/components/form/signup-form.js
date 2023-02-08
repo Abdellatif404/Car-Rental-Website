@@ -4,14 +4,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 import FormButton from "./form-button";
+import FormInput from "./form-input";
 
 const SignUpForm = () => {
+  const navigation = useNavigate();
+  const navigate = (route) => navigation(route);
   const toast = useToast();
-  const to_route = useNavigate();
-  const navigate = (route) => {
-    to_route(route);
-  };
-
   const toastMessage = (message, type = "error", title = "Error occured.") => {
     return toast({
       title: title,
@@ -27,110 +25,46 @@ const SignUpForm = () => {
   const telephone = useRef();
   const email = useRef();
   const password = useRef();
+  const passwordRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-  const onSubmitButton = (e) => {
+  function createUserAcccount(e) {
     e.preventDefault();
 
-    const passwordRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-    /*
-    Check if the password matching the regex above, if it does then crypt the password
-     and send it through post request to laravel api.
-    */
-    if (password.current.value.match(passwordRegEx)) {
-      const hashedPassword = bcrypt.hashSync(password.current.value);
-      axios
-        .post("http://127.0.0.1:8000/api/signup", {
-          firstname: firstname.current.value,
-          lastname: lastname.current.value,
-          telephone: telephone.current.value,
-          email: email.current.value,
-          password: hashedPassword,
-        })
-        .then(function () {
-          toastMessage(
-            "We've created your account for you.",
-            "success",
-            "Account created."
-          );
-          navigate("/login");
-        })
-        .catch(function (error) {
-          toastMessage(error.response.data.message);
-        });
-    } else {
-      toastMessage(
+    if (!password.current.value.match(passwordRegEx))
+      return toastMessage(
         "Password must be minimum 8 characters, at least 1 letter and 1 number."
       );
-    }
-  };
+
+    const hashedPassword = bcrypt.hashSync(password.current.value);
+    axios
+      .post("http://127.0.0.1:8000/api/signup", {
+        firstname: firstname.current.value,
+        lastname: lastname.current.value,
+        telephone: telephone.current.value,
+        email: email.current.value,
+        password: hashedPassword,
+      })
+      .then(() => {
+        toastMessage(
+          "We've created your account for you.",
+          "success",
+          "Account created."
+        );
+        navigate("/login");
+      })
+      .catch((error) => toastMessage(error.response.data.message));
+  }
 
   return (
     <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
-      <form onSubmit={onSubmitButton}>
-        <div className="form-group mb-3">
-          <label className="form-label" htmlFor="firstname">
-            FirstName
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="firstname"
-            placeholder="First name"
-            ref={firstname}
-          />
-        </div>
-        <div className="form-group mb-3">
-          <label className="form-label" htmlFor="lastname">
-            LastName
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="lastname"
-            placeholder="Last Name"
-            ref={lastname}
-          />
-        </div>
-        <div className="form-group mb-3">
-          <label className="form-label" htmlFor="tel">
-            Phone number
-          </label>
-          <input
-            className="form-input"
-            type="tel"
-            id="tel"
-            placeholder="Phone number"
-            ref={telephone}
-          />
-        </div>
-        <div className="form-group mb-3">
-          <label className="form-label" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="form-input"
-            type="email"
-            id="email"
-            placeholder="Email"
-            ref={email}
-          />
-        </div>
-        <div className="form-group mb-3">
-          <label className="form-label" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="form-input"
-            type="password"
-            id="password"
-            placeholder="Password"
-            ref={password}
-          />
-        </div>
-        <div className="form-group">
-          <FormButton bgColor="btn-secondary" btnText="Create account" />
-        </div>
+      <form onSubmit={createUserAcccount}>
+        <FormInput name="firstname" type="text" refe={firstname} />
+        <FormInput name="lastname" type="text" refe={lastname} />
+        <FormInput name="telephone" type="tel" refe={telephone} />
+        <FormInput name="email" type="email" refe={email} />
+        <FormInput name="password" type="password" refe={password} />
+
+        <FormButton bgColor="btn-secondary" btnText="Create account" />
       </form>
     </div>
   );

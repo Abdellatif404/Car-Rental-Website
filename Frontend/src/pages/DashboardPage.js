@@ -12,7 +12,7 @@ import {
   Td,
   Tbody,
   IconButton,
-  Heading,
+  Heading
 } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 

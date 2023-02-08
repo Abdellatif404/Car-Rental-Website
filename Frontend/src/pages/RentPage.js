@@ -11,40 +11,45 @@ import {
   Heading,
   Spacer,
   Stack,
-  Spinner,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import LoadingSpinner from "../components/ui/loading-spinner";
 
 function Rent() {
+  const navigation = useNavigate();
+  const navigate = (route) => navigation(route);
+  let params = useParams();
   const [car, setCar] = useState({});
   const [isLoading, setLoading] = useState(true);
-  let params = useParams();
+
+  const rentalDate = useRef();
+  const returnDate = useRef();
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/rent/${params.id}`)
-      .then(function (res) {
-        setCar(res.data.data[0]);
+      .get(`http://127.0.0.1:8000/api/cars/${params.id}`)
+      .then((response) => {
+        setCar(response.data.data[0]);
         setLoading(false);
-      })
-      .catch(function (error) {});
-  }, []);
+      });
+  }, [params.id]);
 
-  if (isLoading) {
-    return (
-      <Center>
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
-        Loading...
-      </Center>
-    );
+  if (isLoading) return <LoadingSpinner />;
+
+  function rentACar(e) {
+    e.preventDefault();
+
+    const rentDuration =
+      Date.parse(returnDate.current.value) -
+      Date.parse(rentalDate.current.value);
+
+    if (rentDuration <= 0) {
+      //console.log("You can rent for 1 day at least.");
+    } else {
+      //console.log(`OK, you are renting for ${rentDuration / 1000 / 60 / 60 / 24} days`);
+    }
   }
 
   return (
@@ -64,9 +69,9 @@ function Rent() {
           <VStack alignItems={"start"} spacing={"3"}>
             <Heading fontWeight={"400"}>{car.brand}</Heading>
             <FormLabel>Rental date</FormLabel>
-            <Input type={"date"} />
+            <Input type={"date"} ref={rentalDate} />
             <FormLabel>Return date</FormLabel>
-            <Input type={"date"} />
+            <Input type={"date"} ref={returnDate} />
             <HStack w={"full"} justify={"space-between"}>
               <Text>Total</Text>
               <Spacer />
@@ -75,13 +80,15 @@ function Rent() {
                 fontSize="2xl"
                 fontWeight={["bold", "extrabold"]}
               >
-                $500.00
+                ${car.price}.00
               </Text>
               <Text ml={2} fontSize="xl" fontWeight="medium" color="gray.500">
                 USD
               </Text>
             </HStack>
-            <Button w={"full"}>Confirm rent</Button>
+            <Button onClick={rentACar} w={"full"}>
+              Confirm rent
+            </Button>
           </VStack>
         </Box>
       </Stack>

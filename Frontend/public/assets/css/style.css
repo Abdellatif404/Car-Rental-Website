@@ -79,11 +79,6 @@ span {
   outline-offset: 2px;
 }
 
-.logout-icon:hover {
-  color: #ed3a4f;
-  transition: all 0.2s linear;
-}
-
 /*****************************/
 /* FORM CONTROL STYLE */
 /*****************************/

@@ -1,8 +1,10 @@
 const FormButton = ({ bgColor = "", btnText }) => {
   return (
-    <button type="submit" className={bgColor + " form-btn-primary"}>
-      {btnText}
-    </button>
+    <div className="form-group">
+      <button type="submit" className={bgColor + " form-btn-primary"}>
+        {btnText}
+      </button>
+    </div>
   );
 };
 
