@@ -17,14 +17,19 @@ const NavbarLinks = () => {
             Book Cars
           </Link>
         </li>
-        <li className="nav-item mx-2">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
-          </Link>
-        </li>
+        
       </ul>
     </div>
   );
 };
 
 export default NavbarLinks;
+
+/*
+<li className="nav-item mx-2">
+          <Link className="nav-link" to="/dashboard">
+            Dashboard
+          </Link>
+        </li>
+
+*/

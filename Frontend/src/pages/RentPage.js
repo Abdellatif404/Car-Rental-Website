@@ -11,6 +11,9 @@ import {
   Heading,
   Spacer,
   Stack,
+  SimpleGrid,
+  GridItem,
+  Divider,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
@@ -57,23 +60,54 @@ function Rent() {
       <Stack
         direction={{ base: "column", lg: "row" }}
         boxShadow="xl"
-        h={{ base: "auto", lg: "400px" }}
+        h={"auto"}
+        w={"80%"}
         borderRadius="15px"
         overflow={"hidden"}
       >
-        j
         <Box w={{ base: "100%", lg: "50%" }}>
           <Image src={car.photo2} objectFit="cover" h={"full"}></Image>
         </Box>
         <Box w={{ base: "100%", lg: "50%" }} p={"5%"} bg={"white"} h={"full"}>
-          <VStack alignItems={"start"} spacing={"3"}>
-            <Heading fontWeight={"400"}>{car.brand}</Heading>
-            <FormLabel>Rental date</FormLabel>
+          <VStack alignItems={"center"} spacing={"3"}>
+            <Heading fontWeight={"500"}>{car.brand}</Heading>
+
+            <FormLabel fontWeight="600" color="gray.600">Rental date</FormLabel>
             <Input type={"date"} ref={rentalDate} />
-            <FormLabel>Return date</FormLabel>
+            <FormLabel fontWeight="600" color="gray.600">Return date</FormLabel>
             <Input type={"date"} ref={returnDate} />
+
+            <Divider borderColor="gray.300" py={3} />
+            <SimpleGrid w={"full"} columns={3} py={3} textAlign="center">
+            <GridItem>
+              <Heading fontWeight="500" color="gray.400" size="xs">
+                Gearbox
+              </Heading>
+              <Text fontWeight="600" color="gray.600">
+                {car.gearbox}
+              </Text>
+            </GridItem>
+            <GridItem>
+              <Heading fontWeight="500" color="gray.400" size="xs">
+                Type
+              </Heading>
+              <Text fontWeight="600" color="gray.600">
+                {car.fuel_type}
+              </Text>
+            </GridItem>
+            <GridItem>
+              <Heading fontWeight="500" color="gray.400" size="xs">
+                Available
+              </Heading>
+              <Text fontWeight="600" color="gray.600">
+                {car.available ? "yes" : "no"}
+              </Text>
+            </GridItem>
+          </SimpleGrid>
+          <Divider borderColor="gray.300" py={0} />
+
             <HStack w={"full"} justify={"space-between"}>
-              <Text>Total</Text>
+              <Text fontWeight="600" color="gray.600">Total</Text>
               <Spacer />
               <Text
                 color="gray.600"

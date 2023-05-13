@@ -50,7 +50,7 @@ function BookCars() {
       </Navbar>
 
       <VStack>
-        <SimpleGrid columns={[1, 1, 2, 2, 3]} rowGap={6} columnGap={8} p={10}>
+        <SimpleGrid columns={[1, 1, 2, 2, 3]} rowGap={6} columnGap={8} py={10}>
           {cars.map((car) => {
             return (
               <GridItem key={car.id} colSpan={1}>
