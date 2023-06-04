@@ -1,17 +1,17 @@
-import { Button, GridItem, HStack, SimpleGrid, VStack } from "@chakra-ui/react";
-import { MdAccountCircle, MdLogout } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { GridItem, HStack, SimpleGrid, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar/Navbar";
 import CarCard from "../components/ui/car-card";
-import Footer from "../components/navbar/Footer";
+import Footer from "../components/footer";
 import LoadingSpinner from "../components/ui/loading-spinner";
-
+import SearchInput from "../components/search";
+import AvatarMenu from "../components/navbar/avatar-menu";
+import HomeSidebarContent from "../components/home-sidebar-content";
+import NavbarLinks from "../components/navbar/NavbarLinks";
 
 function BookCars() {
-  const navigation = useNavigate();
-  const navigate = (route) => navigation(route);
+  //const { setIsLoggedIn } = useContext(AuthContext);
   const [cars, setCars] = useState();
   const [isLoading, setLoading] = useState(true);
 
@@ -26,28 +26,17 @@ function BookCars() {
 
   return (
     <>
-      <Navbar>
-        <HStack position={"absolute"} right={0} top={3}>
-          <Button
-            color={"gray.600"}
-            colorScheme={"blackAlpha"}
-            variant="ghost"
-            leftIcon={<MdAccountCircle color="gray" />}
-            onClick={() => navigate("/profile")}
-          >
-            Profile
-          </Button>
-          <Button
-            color={"gray.600"}
-            colorScheme={"blackAlpha"}
-            variant="ghost"
-            leftIcon={<MdLogout color="gray" />}
-            onClick={() => navigate("/login")}
-          >
-            Logout
-          </Button>
-        </HStack>
-      </Navbar>
+    <Navbar
+        sidebarContent={<HomeSidebarContent/>}
+        links={<NavbarLinks />}
+        buttons={
+          <>
+            <SearchInput />
+            <AvatarMenu />
+          </>
+        }
+      />
+      
 
       <VStack>
         <SimpleGrid columns={[1, 1, 2, 2, 3]} rowGap={6} columnGap={8} py={10}>

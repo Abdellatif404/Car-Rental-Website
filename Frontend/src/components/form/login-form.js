@@ -5,12 +5,14 @@ import axios from "axios";
 import bcrypt from "bcryptjs";
 import FormButton from "./form-button";
 import FormInput from "./form-input";
+import useAuthentication from "../../useAuthentication";
 
 const LoginForm = () => {
+  const { setLoggedIn } = useAuthentication();
   const navigation = useNavigate();
   const navigate = (route) => navigation(route);
   const toast = useToast();
-  const toastMessage = (message, type = "error", title = "Error occured.") => {
+  const toastMessage = (message, type = "error", title = "Error occured") => {
     return toast({
       title: title,
       description: message,
@@ -31,9 +33,13 @@ const LoginForm = () => {
         email: email.current.value,
       })
       .then((response) => {
+        const { id, firstname, lastname, telephone, email } =
+          response.data.data;
+
+        console.log(response.data.data);
         const verifyPassword = bcrypt.compareSync(
           password.current.value,
-          response.data.data
+          response.data.pass
         );
         if (verifyPassword) {
           toastMessage(
@@ -41,12 +47,22 @@ const LoginForm = () => {
             "success",
             "Welcome again."
           );
+
+          localStorage.setItem("id", id);
+          localStorage.setItem("firstname", firstname);
+          localStorage.setItem("lastname", lastname);
+          localStorage.setItem("telephone", telephone);
+          localStorage.setItem("email", email);
+          setLoggedIn(true);
           navigate("/cars");
-        } else {
+        } else if (!verifyPassword) {
           toastMessage("Wrong password try again.");
         }
       })
-      .catch(() => toastMessage("Wrong Email try again."));
+      .catch((e) => {
+        console.log(`>>>>>>>>>>>>>>${e}`);
+        toastMessage(e.response);
+      });
   }
 
   return (

@@ -10,7 +10,7 @@ const SignUpForm = () => {
   const navigation = useNavigate();
   const navigate = (route) => navigation(route);
   const toast = useToast();
-  const toastMessage = (message, type = "error", title = "Error occured.") => {
+  const toastMessage = (message, type = "error", title = "Error occured") => {
     return toast({
       title: title,
       description: message,

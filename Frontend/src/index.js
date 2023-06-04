@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
+import "./fonts/fonts.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

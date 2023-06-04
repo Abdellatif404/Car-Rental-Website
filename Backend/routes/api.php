@@ -24,6 +24,10 @@ Route::post('signup', [UserController::class, 'signup']);
 
 Route::post('login', [UserController::class, 'login']);
 
+Route::get('users', [UserController::class, 'index']);
+
 Route::get('cars', [CarController::class, 'index']);
 
 Route::get('cars/{id}', [CarController::class, 'show']);
+
+Route::get('logout', [UserController::class, 'logout']);

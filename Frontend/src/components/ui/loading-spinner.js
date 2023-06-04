@@ -4,6 +4,7 @@ const LoadingSpinner = () => {
   return (
     <Center>
       <Spinner
+        borderTop={5}
         thickness="4px"
         speed="0.65s"
         emptyColor="gray.200"

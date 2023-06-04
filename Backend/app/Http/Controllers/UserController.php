@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::select('id', 'firstname', 'lastname', 'telephone', 'email')
+            ->get();
+        return response()->json(['success' => true, 'data' => $users], 200);
+    }
+
     public function signup(Request $request)
     {
         $validated = $request->validate([
@@ -16,27 +25,42 @@ class UserController extends Controller
             'telephone' => 'required|min:10|max:30',
             'email' => 'required|email|unique:users'
         ]);
-        if($validated)
-        {
+        if ($validated) {
             DB::table('users')->insert([
-                'firstname'=>$request->input('firstname'),
-                'lastname'=>$request->input('lastname'),
-                'telephone'=>$request->input('telephone'),
-                'email'=>$request->input('email'),
-                'password'=>$request->input('password')
+                'firstname' => $request->input('firstname'),
+                'lastname' => $request->input('lastname'),
+                'telephone' => $request->input('telephone'),
+                'email' => $request->input('email'),
+                'password' => $request->input('password')
             ]);
-        }    
+        }
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
 
         $email = $request->input('email');
-        $password = $request->input('password');
-        $user = User::where('email', $email)->value('password');
+        $user = User::where('email', $email)->get();
+        $password = $user->value('password');
 
-        if (!$user) 
-            return response()->json(['success'=>false, 'message' => 'Login Fail, no matches in our database']);
+        if (!$user)
+            return response()->json(['success' => false, 'message' => 'Login Fail, no matches in our database']);
 
-        return response()->json(['success'=>true,'message'=>'We\'ve found a match', 'data' => $user],200);
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            session(['id' => $user->id, 'firstname' => $user->firstname, 'lastname' => $user->lastname, 'telephone' => $user->telephone, 'email' => $user->email]);
+        } else {
+            //return response()->json(['error' => 'Authentication failed'], 401);
+        }
+
+        return response()->json(['success' => true, 'message' => 'We\'ve found a match', 'data' => $user[0], 'pass' => $password], 200);
+    }
+
+    public function logout()
+    {
+        session()->flush();
+        Auth::logout();
+        return response()->json(['message' => 'Logout successful']);
     }
 }
