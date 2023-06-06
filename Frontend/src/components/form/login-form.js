@@ -6,22 +6,13 @@ import bcrypt from "bcryptjs";
 import FormButton from "./form-button";
 import FormInput from "./form-input";
 import useAuthentication from "../../useAuthentication";
+import { showToast } from "../toast-alert";
 
 const LoginForm = () => {
   const { setLoggedIn } = useAuthentication();
   const navigation = useNavigate();
   const navigate = (route) => navigation(route);
   const toast = useToast();
-  const toastMessage = (message, type = "error", title = "Error occured") => {
-    return toast({
-      title: title,
-      description: message,
-      status: type,
-      duration: 4000,
-      isClosable: true,
-    });
-  };
-
   const email = useRef();
   const password = useRef();
 
@@ -42,10 +33,11 @@ const LoginForm = () => {
           response.data.pass
         );
         if (verifyPassword) {
-          toastMessage(
+          showToast(
+            toast,
             "You've logged in successfully.",
             "success",
-            "Welcome again."
+            "Success"
           );
 
           localStorage.setItem("id", id);
@@ -56,12 +48,12 @@ const LoginForm = () => {
           setLoggedIn(true);
           navigate("/cars");
         } else if (!verifyPassword) {
-          toastMessage("Wrong password try again.");
+          showToast(toast, "Wrong password try again.");
         }
       })
       .catch((e) => {
         console.log(`>>>>>>>>>>>>>>${e}`);
-        toastMessage(e.response);
+        showToast(toast, e.response);
       });
   }
 
@@ -70,7 +62,6 @@ const LoginForm = () => {
       <form onSubmit={Login}>
         <FormInput name="email" type="email" refe={email} />
         <FormInput name="password" type="password" refe={password} />
-
         <FormButton bgColor="btn-primary" btnText="Sign In" />
       </form>
     </div>

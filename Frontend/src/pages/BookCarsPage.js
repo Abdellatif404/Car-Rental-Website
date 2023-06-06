@@ -26,8 +26,8 @@ function BookCars() {
 
   return (
     <>
-    <Navbar
-        sidebarContent={<HomeSidebarContent/>}
+      <Navbar
+        sidebarContent={<HomeSidebarContent />}
         links={<NavbarLinks />}
         buttons={
           <>
@@ -36,7 +36,6 @@ function BookCars() {
           </>
         }
       />
-      
 
       <VStack>
         <SimpleGrid columns={[1, 1, 2, 2, 3]} rowGap={6} columnGap={8} py={10}>

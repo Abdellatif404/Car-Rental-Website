@@ -60,7 +60,7 @@ function Dashboard() {
         setData(response.data.data);
       });
     } else if (type == "Rents") {
-      axios.get("http://127.0.0.1:8000/api/cars").then((response) => {
+      axios.get("http://127.0.0.1:8000/api/rents").then((response) => {
         setHeader([
           "id",
           "rental_date",
@@ -87,10 +87,6 @@ function Dashboard() {
       />
       <Box
         as="section"
-        bg="gray.50"
-        _dark={{
-          bg: "red.700",
-        }}
         minH="100vh"
       >
         <Box
@@ -102,12 +98,12 @@ function Dashboard() {
         >
           <Box as="main" p={4}>
             <Box borderWidth="4px" borderStyle="dashed" rounded="md" h="auto">
-              <Box h={"full"} w={"full"}>
+              <Box h={"full"} w={"full"} overflowX="auto">
                 <TableContainer p={10}>
-                  <Heading fontSize={"2xl"} pb="5">
+                  <Heading fontSize={{ base: "xl", md: "2xl" }} pb="5">
                     Hi, Admin
                   </Heading>
-                  <Table variant="striped">
+                  <Table variant="striped" size={{ base: "sm", md: "md" }}>
                     <Thead>
                       <Tr>
                         {header.map((title) => (

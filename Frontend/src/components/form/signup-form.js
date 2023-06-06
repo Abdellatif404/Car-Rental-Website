@@ -5,21 +5,12 @@ import axios from "axios";
 import bcrypt from "bcryptjs";
 import FormButton from "./form-button";
 import FormInput from "./form-input";
+import { showToast } from "../toast-alert";
 
 const SignUpForm = () => {
   const navigation = useNavigate();
   const navigate = (route) => navigation(route);
   const toast = useToast();
-  const toastMessage = (message, type = "error", title = "Error occured") => {
-    return toast({
-      title: title,
-      description: message,
-      status: type,
-      duration: 4000,
-      isClosable: true,
-    });
-  };
-
   const firstname = useRef();
   const lastname = useRef();
   const telephone = useRef();
@@ -31,7 +22,8 @@ const SignUpForm = () => {
     e.preventDefault();
 
     if (!password.current.value.match(passwordRegEx))
-      return toastMessage(
+      return showToast(
+        toast,
         "Password must be minimum 8 characters, at least 1 letter and 1 number."
       );
 
@@ -45,14 +37,10 @@ const SignUpForm = () => {
         password: hashedPassword,
       })
       .then(() => {
-        toastMessage(
-          "We've created your account for you.",
-          "success",
-          "Account created."
-        );
+        showToast(toast, "Account created successfully.", "success", "Success");
         navigate("/login");
       })
-      .catch((error) => toastMessage(error.response.data.message));
+      .catch((error) => showToast(toast, error.response.data.message));
   }
 
   return (

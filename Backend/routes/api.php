@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\RentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,9 @@ Route::get('cars', [CarController::class, 'index']);
 Route::get('cars/{id}', [CarController::class, 'show']);
 
 Route::get('logout', [UserController::class, 'logout']);
+
+Route::get('rents', [RentController::class, 'index']);
+
+Route::post('rents', [RentController::class, 'store']);
+
+Route::get('/users/{user_id}/rents', [RentController::class, 'getUserRents']);
