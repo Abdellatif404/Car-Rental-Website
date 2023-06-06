@@ -5,12 +5,15 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import "./fonts/fonts.css";
+import { SearchProvider } from "./SearchContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <App />
+      <SearchProvider>
+        <App />
+      </SearchProvider>
     </ChakraProvider>
   </React.StrictMode>
 );
