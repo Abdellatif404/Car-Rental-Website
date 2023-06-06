@@ -54,21 +54,17 @@ function BookCars() {
             columnGap={8}
             py={10}
           >
-            {searchResults.length > 0 ? (
-              searchResults.map((car) => (
-                <GridItem key={car.id} colSpan={1}>
-                  <CarCard props={car} />
-                </GridItem>
-              ))
-            ) : (
-              <>
-                <GridItem colSpan={[1, 1, "auto"]} />
-                <GridItem colSpan={1} textAlign="center">
-                  <Text>No results found.</Text>
-                </GridItem>
-                <GridItem colSpan={[1, 1, "auto"]} />
-              </>
-            )}
+            {searchResults && searchResults.length > 0
+              ? searchResults.map((car) => (
+                  <GridItem key={car.id} colSpan={1}>
+                    <CarCard props={car} />
+                  </GridItem>
+                ))
+              : cars.map((car) => (
+                  <GridItem key={car.id} colSpan={1}>
+                    <CarCard props={car} />
+                  </GridItem>
+                ))}
           </SimpleGrid>
         </VStack>
       </Box>

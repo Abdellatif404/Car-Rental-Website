@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import SearchContext from "../SearchContext";
 import axios from "axios";
 
-
 const SearchInput = () => {
   const { setSearchResults } = useContext(SearchContext);
   const [cars, setCars] = useState();
@@ -17,10 +16,12 @@ const SearchInput = () => {
 
   const handleSearch = (event) => {
     const searchQuery = event.target.value.toLowerCase();
-    const filteredResults = cars.filter((car) =>
-      car.brand.toLowerCase().includes(searchQuery)
-    );
-    setSearchResults(filteredResults);
+    
+      const filteredResults = cars.filter((car) =>
+        car.brand.toLowerCase().includes(searchQuery)
+      );
+      setSearchResults(filteredResults);
+    
   };
 
   return (

@@ -36,6 +36,7 @@ function Dashboard() {
     "price",
     "availability",
   ]);
+  const [type, setType] = useState("");
   const { isLoading } = useAuthentication();
   const sidebar = useDisclosure();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -45,6 +46,7 @@ function Dashboard() {
       axios.get("http://127.0.0.1:8000/api/users").then((response) => {
         setHeader(["id", "firstname", "lastname", "telephone", "email"]);
         setData(response.data.data);
+        setType("users");
       });
     } else if (type == "Cars") {
       axios.get("http://127.0.0.1:8000/api/cars").then((response) => {
@@ -58,6 +60,7 @@ function Dashboard() {
           "available",
         ]);
         setData(response.data.data);
+        setType("cars");
       });
     } else if (type == "Rents") {
       axios.get("http://127.0.0.1:8000/api/rents").then((response) => {
@@ -70,8 +73,22 @@ function Dashboard() {
           "car_id",
         ]);
         setData(response.data.data);
+        setType("rents");
       });
     }
+  };
+
+  const handleDelete = (id) => {
+    const endpoint = `http://127.0.0.1:8000/api/${type}/${id}`;
+
+    axios
+      .delete(endpoint)
+      .then((response) => {
+        setData((prevData) => prevData.filter((item) => item.id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -85,10 +102,7 @@ function Dashboard() {
           </>
         }
       />
-      <Box
-        as="section"
-        minH="100vh"
-      >
+      <Box as="section" minH="100vh">
         <Box
           ml={{
             base: 0,
@@ -133,6 +147,7 @@ function Dashboard() {
                               icon={<EditIcon />}
                             />
                             <IconButton
+                              onClick={() => handleDelete(item.id)}
                               bg={""}
                               _hover={{ bg: "red", color: "white" }}
                               ml={1}

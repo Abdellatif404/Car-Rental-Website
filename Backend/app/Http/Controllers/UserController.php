@@ -63,4 +63,48 @@ class UserController extends Controller
         Auth::logout();
         return response()->json(['message' => 'Logout successful']);
     }
+
+    public function update(Request $request, $user_id)
+{
+    try {
+    $user = User::find($user_id);
+
+    if (!$user) {
+        return response()->json(['success' => false, 'message' => 'User not found'], 404);
+    }
+
+    $validated = $request->validate([
+        'firstname' => 'required|min:2|max:20',
+        'lastname' => 'required|min:2|max:20',
+        'telephone' => 'required|min:10|max:30',
+    ]);
+
+    if ($validated) {
+        $user->firstname = $request->input('firstname');
+        $user->lastname = $request->input('lastname');
+        $user->telephone = $request->input('telephone');
+        $user->save();
+
+        return response()->json(['success' => true, 'message' => 'User information updated successfully']);
+    }
+
+    return response()->json(['success' => false, 'message' => 'Validation failed']);
+} catch (\Exception $e) {
+    return response()->json(['success' => false, 'message' => 'An error occurred while updating the user profile'], 500);
+}
+}
+
+public function destroy($id)
+{
+    $user = User::find($id);
+
+    if (!$user) {
+        return response()->json(['success' => false, 'message' => 'User not found'], 404);
+    }
+
+    $user->delete();
+
+    return response()->json(['success' => true, 'message' => 'User deleted successfully']);
+}
+
 }

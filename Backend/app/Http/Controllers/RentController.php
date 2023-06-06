@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rent;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class RentController extends Controller
@@ -32,7 +33,23 @@ class RentController extends Controller
     // Get rents of a specific user
     public function getUserRents($user_id)
     {
-        $rents = Rent::where('user_id', $user_id)->get();
+        //$rents = Rent::where('user_id', $user_id)->get();
+        $user = User::with('rents.car')->find($user_id);
+        $rents = $user->rents;
+
         return response()->json(['success' => true, 'data' => $rents]);
     }
+
+    public function destroy($id)
+{
+    $rent = Rent::find($id);
+
+    if (!$rent) {
+        return response()->json(['success' => false, 'message' => 'Rent not found'], 404);
+    }
+
+    $rent->delete();
+
+    return response()->json(['success' => true, 'message' => 'Rent deleted successfully']);
+}
 }

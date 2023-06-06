@@ -20,4 +20,17 @@ class CarController extends Controller
         $car = DB::table('cars')->where('id', $id)->get();
         return response()->json(['success' => true, 'data' => $car], 200);
     }
+
+    public function destroy($id)
+{
+    $car = Car::find($id);
+
+    if (!$car) {
+        return response()->json(['success' => false, 'message' => 'Car not found'], 404);
+    }
+
+    $car->delete();
+
+    return response()->json(['success' => true, 'message' => 'Car deleted successfully']);
+}
 }
