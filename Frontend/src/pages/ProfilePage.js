@@ -13,6 +13,7 @@ import {
   Heading,
   Spacer,
   Divider,
+  Text,
 } from "@chakra-ui/react";
 import ProfileDrawer from "../components/ui/profile-drawer";
 import HomeSidebarContent from "../components/home-sidebar-content";
@@ -50,8 +51,9 @@ function Profile() {
               <ProfileDrawer />
             </HStack>
             <Divider my={5} />
+
             <TableContainer>
-              <Table variant="striped"  size={["md", "md", "lg"]}>
+              <Table variant="striped" size={["md", "md", "lg"]}>
                 <Thead>
                   <Tr>
                     <Th>brand</Th>
@@ -63,19 +65,29 @@ function Profile() {
                     <Th>return date</Th>
                   </Tr>
                 </Thead>
-                <Tbody>
-                  {rents.map((rent) => (
-                    <Tr key={rent.id}>
-                      <Td>{rent.car.brand}</Td>
-                      <Td>{rent.car.model}</Td>
-                      <Td>{rent.car.fuel_type}</Td>
-                      <Td>{rent.car.price}</Td>
-                      <Td>{rent.car.gearbox}</Td>
-                      <Td>{rent.rental_date}</Td>
-                      <Td>{rent.return_date}</Td>
+                {rents.length === 0 ? (
+                  <Tbody>
+                    <Tr>
+                      <Td colSpan={7}>
+                        <Text textAlign="center" >No rentals available.</Text>
+                      </Td>
                     </Tr>
-                  ))}
-                </Tbody>
+                  </Tbody>
+                ) : (
+                  <Tbody>
+                    {rents.map((rent) => (
+                      <Tr key={rent.id}>
+                        <Td>{rent.car.brand}</Td>
+                        <Td>{rent.car.model}</Td>
+                        <Td>{rent.car.fuel_type}</Td>
+                        <Td>{rent.car.price}</Td>
+                        <Td>{rent.car.gearbox}</Td>
+                        <Td>{rent.rental_date}</Td>
+                        <Td>{rent.return_date}</Td>
+                      </Tr>
+                    ))}
+                  </Tbody>
+                )}
               </Table>
             </TableContainer>
           </Box>

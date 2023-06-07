@@ -1,11 +1,4 @@
-import {
-  Box,
-  GridItem,
-  HStack,
-  SimpleGrid,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, GridItem, SimpleGrid, VStack } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar/Navbar";
@@ -19,7 +12,6 @@ import NavbarLinks from "../components/navbar/NavbarLinks";
 import SearchContext from "../SearchContext";
 
 function BookCars() {
-  //const { setIsLoggedIn } = useContext(AuthContext);
   const { searchResults, setSearchResults } = useContext(SearchContext);
   const [cars, setCars] = useState();
   const [isLoading, setLoading] = useState(true);

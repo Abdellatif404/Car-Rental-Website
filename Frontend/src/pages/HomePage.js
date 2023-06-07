@@ -11,7 +11,6 @@ import useAuthentication from "../useAuthentication";
 import WhyChooseUs from "../components/why-choose-us";
 import FeaturedVehicles from "../components/featured-vehicles";
 import HomeSidebarContent from "../components/home-sidebar-content";
-import SidebarContent from "../components/dashboard/sidebar-content";
 import NavbarLinks from "../components/navbar/NavbarLinks";
 
 function Home() {

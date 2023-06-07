@@ -14,19 +14,21 @@ import {
   DrawerContent,
   DrawerOverlay,
   useDisclosure,
+  useToast,
+  Button,
 } from "@chakra-ui/react";
-import { DeleteIcon, EditIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 import AvatarMenu from "../components/navbar/avatar-menu";
 import SidebarContent from "../components/dashboard/sidebar-content";
 import SearchInput from "../components/search";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import useAuthentication from "../useAuthentication";
-import LoadingSpinner from "../components/ui/loading-spinner";
+import { useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import EditItemDrawer from "../components/dashboard/edit-drawer";
+import { showToast } from "../components/toast-alert";
 
 function Dashboard() {
+  const toast = useToast();
   const [data, setData] = useState([]);
   const [header, setHeader] = useState([
     "id",
@@ -38,10 +40,6 @@ function Dashboard() {
     "availability",
   ]);
   const [type, setType] = useState("");
-  const [editingItemId, setEditingItemId] = useState(null);
-  const [updatedItem, setUpdatedItem] = useState(null);
-  const { isLoading } = useAuthentication();
-  const sidebar = useDisclosure();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleData = (type) => {
@@ -81,16 +79,13 @@ function Dashboard() {
     }
   };
 
-  const handleEdit = (id) => {
-    setEditingItemId(id);
-  };
-
   const handleUpdateItem = (itemId, updatedItem) => {
     const endpoint = `http://127.0.0.1:8000/api/${type}/${itemId}`;
 
     axios
       .put(endpoint, updatedItem)
       .then((response) => {
+        showToast(toast, `${type} updated successfully!`, "success", "Success");
         const updatedData = response.data.data;
 
         setData((prevData) =>
@@ -114,6 +109,7 @@ function Dashboard() {
     axios
       .delete(endpoint)
       .then((response) => {
+        showToast(toast, `${type} deleted successfully!`, "success", "Success");
         setData((prevData) => prevData.filter((item) => item.id !== id));
       })
       .catch((error) => {
@@ -144,9 +140,19 @@ function Dashboard() {
             <Box borderWidth="4px" borderStyle="dashed" rounded="md" h="auto">
               <Box h={"full"} w={"full"} overflowX="auto">
                 <TableContainer p={10}>
-                  <Heading fontSize={{ base: "xl", md: "2xl" }} pb="5">
-                    Hi, Admin
-                  </Heading>
+                  <Flex align="center" justify="space-between" pb={5}>
+                    <Heading fontSize={{ base: "xl", md: "2xl" }} pb="5">
+                      Hi, Admin
+                    </Heading>
+                    <Button
+                    
+                      colorScheme="telegram"
+                      ml={4}
+                      leftIcon={<AddIcon color="white" />}
+                    >
+                      New item
+                    </Button>
+                  </Flex>
                   <Table variant="striped" size={{ base: "sm", md: "md" }}>
                     <Thead>
                       <Tr>
@@ -179,7 +185,7 @@ function Dashboard() {
                             <IconButton
                               onClick={() => handleDelete(item.id)}
                               bg={""}
-                              _hover={{ bg: "red", color: "white" }}
+                              _hover={{ bg: "red.500", color: "white" }}
                               ml={1}
                               aria-label="Delete"
                               icon={<DeleteIcon />}

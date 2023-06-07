@@ -1,6 +1,6 @@
 import {
   Box,
-  IconButton,
+  Text,
   Flex,
   Avatar,
   Button,
@@ -14,8 +14,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 const AvatarMenu = () => {
+  const fullname =
+    localStorage.getItem("firstname") + " " + localStorage.getItem("lastname");
+  const email = localStorage.getItem("email");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const to_route = useNavigate();
   const navigate = (route) => {
@@ -57,10 +59,14 @@ const AvatarMenu = () => {
               />
             </MenuButton>
             <MenuList>
+              <Box mt={4} textAlign="center">
+                <Text fontWeight="bold">{fullname}</Text>
+                <Text fontSize="sm" color={"gray"}>
+                  {email}
+                </Text>
+              </Box>
+              <MenuDivider />
               <MenuItem onClick={() => navigate("/")}>Home</MenuItem>
-              <MenuItem onClick={() => navigate("/dashboard")}>
-                Dashboard
-              </MenuItem>
               <MenuItem onClick={() => navigate("/profile")}>Profile</MenuItem>
               <MenuDivider />
               <MenuItem onClick={handleLogout}>Logout</MenuItem>

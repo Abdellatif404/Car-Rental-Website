@@ -175,7 +175,8 @@ function EditItemDrawer({ dataType, item, onUpdate }) {
     <>
       <Button
         leftIcon={<EditIcon color={"white"} />}
-        colorScheme="telegram"
+        colorScheme="green"
+        _hover={{ bg: "green", color: "white" }}
         onClick={onOpen}
       >
         Edit

@@ -45,6 +45,10 @@ function ProfileDrawer() {
       .put(`http://127.0.0.1:8000/api/user/${user_id}`, formData)
       .then((response) => {
         console.log(response.data);
+        const updatedUser = response.data.data;
+        localStorage.setItem("firstname", updatedUser.firstname);
+        localStorage.setItem("lastname", updatedUser.lastname);
+        localStorage.setItem("telephone", updatedUser.telephone);
         onClose();
       })
       .catch((error) => {

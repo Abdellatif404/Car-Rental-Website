@@ -41,7 +41,6 @@ Route::post('rents', [RentController::class, 'store']);
 Route::get('/users/{user_id}/rents', [RentController::class, 'getUserRents']);
 
 Route::put('/user/{user_id}', [UserController::class, 'updateProfile']);
-//Route::resource('profile', UsersController::class);
 
 Route::delete('/cars/{id}', [CarController::class, 'destroy']);
 Route::delete('/rents/{id}', [RentController::class, 'destroy']);

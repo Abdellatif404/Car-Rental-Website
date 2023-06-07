@@ -1,4 +1,5 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
   IconButton,
   Box,
@@ -11,37 +12,20 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
-  BoxProps,
-  FlexProps,
   DrawerOverlay,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-} from "react-icons/fi";
-import { IconType } from "react-icons";
-import { ReactText } from "react";
+import { FiHome } from "react-icons/fi";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { FaServicestack } from "react-icons/fa";
-import { RiCustomerService2Fill, RiDashboard2Fill } from "react-icons/ri";
-import { AiFillDashboard, AiOutlineDashboard } from "react-icons/ai";
+import { RiFileTextLine } from "react-icons/ri";
+import { AiOutlineDashboard, AiOutlineInfoCircle } from "react-icons/ai";
+import { BiCar } from "react-icons/bi";
+import { useEffect, useState } from "react";
 
-const LinkItems = [
-  { name: "Home", icon: FiHome },
-  { name: "Explore", icon: FiCompass },
-  { name: "Dashboard", icon: AiOutlineDashboard },
-  { name: "About Us", icon: FiStar },
-  { name: "Terms of Service", icon: RiCustomerService2Fill },
-];
-
-const NavItem = ({ icon, children, ...rest }) => {
+const NavItem = ({ icon, children, link, ...rest }) => {
   return (
     <Link
-      href="#"
+      as={RouterLink}
+      to={link}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >
@@ -75,7 +59,22 @@ const NavItem = ({ icon, children, ...rest }) => {
 };
 
 const HomeSidebarContent = () => {
+  const [email, setEmail] = useState(localStorage.getItem("email"));
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    setEmail(localStorage.getItem("email"));
+  }, []);
+
+  const LinkItems = [
+    { name: "Home", icon: FiHome, link: "/home" },
+    { name: "Book Cars", icon: BiCar, link: "/cars" },
+    ...(email === "admin@gmail.com"
+      ? [{ name: "Dashboard", icon: AiOutlineDashboard, link: "/dashboard" }]
+      : []),
+    { name: "About Us", icon: AiOutlineInfoCircle, link: "/#" },
+    { name: "Terms of Service", icon: RiFileTextLine, link: "/#" },
+  ];
   return (
     <>
       <Drawer isOpen={isOpen} onClose={onClose} placement="left">
@@ -105,7 +104,7 @@ const HomeSidebarContent = () => {
                 />
               </Flex>
               {LinkItems.map((link) => (
-                <NavItem key={link.name} icon={link.icon}>
+                <NavItem key={link.name} icon={link.icon} link={link.link}>
                   {link.name}
                 </NavItem>
               ))}
@@ -128,57 +127,3 @@ const HomeSidebarContent = () => {
 };
 
 export default HomeSidebarContent;
-
-/*
-import { Box, Flex, Text } from "@chakra-ui/react";
-import NavItem from "./nav-item";
-import { FaUserFriends } from "react-icons/fa";
-import { GiCarKey } from "react-icons/gi";
-import { RiCarLine } from "react-icons/ri";
-
-const HomeSidebarContent = ({ handleData, ...props }) => {
-  return (
-    <Box
-      as="nav"
-      pos="fixed"
-      top="0"
-      left="0"
-      zIndex="sticky"
-      h="full"
-      pb="10"
-      overflowX="hidden"
-      overflowY="auto"
-      bg="blue.700"
-      borderColor="blackAlpha.300"
-      borderRightWidth="1px"
-      w="60"
-      {...props}
-    >
-      <Flex px="4" py="5" align="center">
-        <Text fontSize="2xl" ml="2" color="white" fontWeight="semibold">
-          LOCAVO
-        </Text>
-      </Flex>
-      <Flex
-        direction="column"
-        as="nav"
-        fontSize="sm"
-        color="gray.600"
-        aria-label="Main Navigation"
-      >
-        <NavItem icon={FaUserFriends} onClick={() => handleData("Users")}>
-          Users
-        </NavItem>
-        <NavItem icon={RiCarLine} onClick={() => handleData("Cars")}>
-          Cars
-        </NavItem>
-        <NavItem icon={GiCarKey} onClick={() => handleData("Rents")}>
-          Rents
-        </NavItem>
-      </Flex>
-    </Box>
-  );
-};
-
-export default HomeSidebarContent;
-*/

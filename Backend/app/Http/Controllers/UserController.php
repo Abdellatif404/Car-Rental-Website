@@ -78,7 +78,8 @@ class UserController extends Controller
             'lastname' => $request->lastname,
             'telephone' => $request->telephone,
         ]);
-        return response()->json(['success' => true, 'message' => 'Profile updated successfully']);
+        $user = User::find($user_id);
+        return response()->json(['success' => true, 'message' => 'Profile updated successfully', 'data' => $user]);
         
     }
 
@@ -99,7 +100,7 @@ class UserController extends Controller
             'telephone' => $request->telephone,
             'email' => $request->email,
         ]);
-        
+
         return response()->json([
             'data' => $user,
             'message' => 'User updated successfully',
