@@ -64,47 +64,59 @@ class UserController extends Controller
         return response()->json(['message' => 'Logout successful']);
     }
 
-    public function update(Request $request, $user_id)
-{
-    try {
-    $user = User::find($user_id);
-
-    if (!$user) {
-        return response()->json(['success' => false, 'message' => 'User not found'], 404);
+    public function updateProfile(Request $request, $user_id)
+    {
+        $user = User::find($user_id);
+        
+        $validated = $request->validate([
+            'firstname' => 'required|min:2|max:20',
+            'lastname' => 'required|min:2|max:20',
+            'telephone' => 'required|min:10|max:30',
+        ]);
+        DB::table('users')->where('id', $user_id)->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'telephone' => $request->telephone,
+        ]);
+        return response()->json(['success' => true, 'message' => 'Profile updated successfully']);
+        
     }
 
-    $validated = $request->validate([
-        'firstname' => 'required|min:2|max:20',
-        'lastname' => 'required|min:2|max:20',
-        'telephone' => 'required|min:10|max:30',
-    ]);
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
 
-    if ($validated) {
-        $user->firstname = $request->input('firstname');
-        $user->lastname = $request->input('lastname');
-        $user->telephone = $request->input('telephone');
-        $user->save();
+        $validatedData = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'telephone' => 'required',
+            'email' => 'required',
+        ]);
 
-        return response()->json(['success' => true, 'message' => 'User information updated successfully']);
+        DB::table('users')->where('id', $id)->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+        ]);
+        
+        return response()->json([
+            'data' => $user,
+            'message' => 'User updated successfully',
+        ]);
     }
 
-    return response()->json(['success' => false, 'message' => 'Validation failed']);
-} catch (\Exception $e) {
-    return response()->json(['success' => false, 'message' => 'An error occurred while updating the user profile'], 500);
-}
-}
+    public function destroy($id)
+    {
+        $user = User::find($id);
 
-public function destroy($id)
-{
-    $user = User::find($id);
+        if (!$user) {
+            return response()->json(['success' => false, 'message' => 'User not found'], 404);
+        }
 
-    if (!$user) {
-        return response()->json(['success' => false, 'message' => 'User not found'], 404);
+        $user->delete();
+
+        return response()->json(['success' => true, 'message' => 'User deleted successfully']);
     }
-
-    $user->delete();
-
-    return response()->json(['success' => true, 'message' => 'User deleted successfully']);
-}
 
 }

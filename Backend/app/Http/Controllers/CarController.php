@@ -21,16 +21,44 @@ class CarController extends Controller
         return response()->json(['success' => true, 'data' => $car], 200);
     }
 
-    public function destroy($id)
-{
-    $car = Car::find($id);
+    public function update(Request $request, $id)
+    {
+        $car = Car::findOrFail($id); 
 
-    if (!$car) {
-        return response()->json(['success' => false, 'message' => 'Car not found'], 404);
+        $validatedData = $request->validate([
+            'brand' => 'required',
+            'model' => 'required',
+            'gearbox' => 'required',
+            'fuel_type' => 'required',
+            'price' => 'required',
+            'available' => 'required',
+        ]);
+
+        DB::table('cars')->where('id', $id)->update([
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'gearbox' => $request->gearbox,
+            'fuel_type' => $request->fuel_type,
+            'price' => $request->price,
+            'available' => $request->available
+        ]);
+
+        return response()->json([
+            'data' => $car,
+            'message' => 'Car updated successfully',
+        ]);
     }
 
-    $car->delete();
+    public function destroy($id)
+    {
+        $car = Car::find($id);
 
-    return response()->json(['success' => true, 'message' => 'Car deleted successfully']);
-}
+        if (!$car) {
+            return response()->json(['success' => false, 'message' => 'Car not found'], 404);
+        }
+
+        $car->delete();
+
+        return response()->json(['success' => true, 'message' => 'Car deleted successfully']);
+    }
 }

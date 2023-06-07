@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 import useAuthentication from "../useAuthentication";
 import LoadingSpinner from "../components/ui/loading-spinner";
 import Navbar from "../components/navbar/Navbar";
+import EditItemDrawer from "../components/dashboard/edit-drawer";
 
 function Dashboard() {
   const [data, setData] = useState([]);
@@ -37,6 +38,8 @@ function Dashboard() {
     "availability",
   ]);
   const [type, setType] = useState("");
+  const [editingItemId, setEditingItemId] = useState(null);
+  const [updatedItem, setUpdatedItem] = useState(null);
   const { isLoading } = useAuthentication();
   const sidebar = useDisclosure();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -76,6 +79,33 @@ function Dashboard() {
         setType("rents");
       });
     }
+  };
+
+  const handleEdit = (id) => {
+    setEditingItemId(id);
+  };
+
+  const handleUpdateItem = (itemId, updatedItem) => {
+    const endpoint = `http://127.0.0.1:8000/api/${type}/${itemId}`;
+
+    axios
+      .put(endpoint, updatedItem)
+      .then((response) => {
+        const updatedData = response.data.data;
+
+        setData((prevData) =>
+          prevData.map((item) => {
+            if (item.id === itemId) {
+              return updatedData;
+            }
+            return item;
+          })
+        );
+        console.log(response.data.message);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleDelete = (id) => {
@@ -132,19 +162,19 @@ function Dashboard() {
                           {header.map((column) => {
                             if (column == "available")
                               return (
-                                <Td key={column}>
+                                <Td key={item.id}>
                                   {item[column] == 0 ? "yes" : "no"}
                                 </Td>
                               );
                             else return <Td key={column}>{item[column]}</Td>;
                           })}
                           <Td>
-                            <IconButton
-                              bg={""}
-                              _hover={{ bg: "blue.400", color: "white" }}
-                              mr={1}
-                              aria-label="Edit"
-                              icon={<EditIcon />}
+                            <EditItemDrawer
+                              dataType={type}
+                              item={item}
+                              onUpdate={(updatedItem) =>
+                                handleUpdateItem(item.id, updatedItem)
+                              }
                             />
                             <IconButton
                               onClick={() => handleDelete(item.id)}

@@ -40,16 +40,42 @@ class RentController extends Controller
         return response()->json(['success' => true, 'data' => $rents]);
     }
 
-    public function destroy($id)
-{
-    $rent = Rent::find($id);
+    public function update(Request $request, $id)
+    {
+        $rent = Rent::findOrFail($id);
 
-    if (!$rent) {
-        return response()->json(['success' => false, 'message' => 'Rent not found'], 404);
+        $validatedData = $request->validate([
+            'rental_date' => 'required',
+            'return_date' => 'required',
+            'price' => 'required',
+            'user_id' => 'required',
+            'car_id' => 'required',
+        ]);
+
+        DB::table('rentals')->where('id', $id)->update([
+            'rental_date' => $request->rental_date,
+            'return_date' => $request->return_date,
+            'price' => $request->price,
+            'user_id' => $request->user_id,
+            'car_id' => $request->car_id
+        ]);
+
+        return response()->json([
+            'data' => $rent,
+            'message' => 'Rent updated successfully',
+        ]);
     }
 
-    $rent->delete();
+    public function destroy($id)
+    {
+        $rent = Rent::find($id);
 
-    return response()->json(['success' => true, 'message' => 'Rent deleted successfully']);
-}
+        if (!$rent) {
+            return response()->json(['success' => false, 'message' => 'Rent not found'], 404);
+        }
+
+        $rent->delete();
+
+        return response()->json(['success' => true, 'message' => 'Rent deleted successfully']);
+    }
 }

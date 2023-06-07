@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\RentController;
 
@@ -39,8 +40,13 @@ Route::post('rents', [RentController::class, 'store']);
 
 Route::get('/users/{user_id}/rents', [RentController::class, 'getUserRents']);
 
-Route::patch('/user/{user_id}', [UserController::class, 'update']);
+Route::put('/user/{user_id}', [UserController::class, 'updateProfile']);
+//Route::resource('profile', UsersController::class);
 
 Route::delete('/cars/{id}', [CarController::class, 'destroy']);
 Route::delete('/rents/{id}', [RentController::class, 'destroy']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+Route::put('cars/{id}', [CarController::class, 'update']);
+Route::put('rents/{id}', [RentController::class, 'update']);
+Route::put('users/{id}', [UserController::class, 'update']);

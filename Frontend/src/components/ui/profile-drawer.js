@@ -42,7 +42,7 @@ function ProfileDrawer() {
 
   const handleSubmit = () => {
     axios
-      .patch(`http://127.0.0.1:8000/api/user/${user_id}`, formData)
+      .put(`http://127.0.0.1:8000/api/user/${user_id}`, formData)
       .then((response) => {
         console.log(response.data);
         onClose();
@@ -83,6 +83,7 @@ function ProfileDrawer() {
                 <Input
                   ref={firstField}
                   id="firstname"
+                  name="firstname"
                   value={formData.firstname}
                   onChange={handleChange}
                 />
@@ -92,6 +93,7 @@ function ProfileDrawer() {
                 <FormLabel htmlFor="lastname">Lastname</FormLabel>
                 <Input
                   id="lastname"
+                  name="lastname"
                   value={formData.lastname}
                   onChange={handleChange}
                 />
@@ -101,6 +103,7 @@ function ProfileDrawer() {
                 <FormLabel htmlFor="telephone">Phone number</FormLabel>
                 <Input
                   id="telephone"
+                  name="telephone"
                   value={formData.telephone}
                   onChange={handleChange}
                 />
