@@ -38,6 +38,8 @@ Route::get('rents', [RentController::class, 'index']);
 
 Route::post('rents', [RentController::class, 'store']);
 
+Route::post('cars', [CarController::class, 'store']);
+
 Route::get('/users/{user_id}/rents', [RentController::class, 'getUserRents']);
 
 Route::put('/user/{user_id}', [UserController::class, 'updateProfile']);

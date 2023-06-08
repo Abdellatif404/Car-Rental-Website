@@ -26,6 +26,7 @@ import { useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import EditItemDrawer from "../components/dashboard/edit-drawer";
 import { showToast } from "../components/toast-alert";
+import CreateItemDrawer from "../components/dashboard/create-drawer";
 
 function Dashboard() {
   const toast = useToast();
@@ -81,7 +82,7 @@ function Dashboard() {
 
   const handleUpdateItem = (itemId, updatedItem) => {
     const endpoint = `http://127.0.0.1:8000/api/${type}/${itemId}`;
-
+    
     axios
       .put(endpoint, updatedItem)
       .then((response) => {
@@ -144,14 +145,7 @@ function Dashboard() {
                     <Heading fontSize={{ base: "xl", md: "2xl" }} pb="5">
                       Hi, Admin
                     </Heading>
-                    <Button
-                    
-                      colorScheme="telegram"
-                      ml={4}
-                      leftIcon={<AddIcon color="white" />}
-                    >
-                      New item
-                    </Button>
+                    {type === "cars" && <CreateItemDrawer dataType={type} />}
                   </Flex>
                   <Table variant="striped" size={{ base: "sm", md: "md" }}>
                     <Thead>

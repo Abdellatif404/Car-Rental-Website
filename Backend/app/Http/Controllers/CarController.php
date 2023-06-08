@@ -10,7 +10,7 @@ class CarController extends Controller
 {
     public function index()
     {
-        $cars = Car::select('id', 'brand', 'model', 'fuel_type', 'price', 'gearbox', 'available')
+        $cars = Car::select('id', 'photo1', 'photo2', 'brand', 'model', 'fuel_type', 'price', 'gearbox', 'available')
             ->get();
         return response()->json(['success' => true, 'data' => $cars], 200);
     }
@@ -19,6 +19,32 @@ class CarController extends Controller
     {
         $car = DB::table('cars')->where('id', $id)->get();
         return response()->json(['success' => true, 'data' => $car], 200);
+    }
+
+    public function store(Request $request)
+    {
+        DB::table('cars')->insert([
+            'photo1' => $request->photo1,
+            'photo2' => $request->photo2,
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'gearbox' => $request->gearbox,
+            'fuel_type' => $request->fuel_type,
+            'price' => $request->price,
+            'available' => $request->available,
+        ]);
+        /*DB::table('cars')->insert([
+            
+            'photo1' => $request->photo1,
+            'photo2' => $request->return_date,
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'gearbox' => $request->gearbox,
+            'fuel_type' => $request->fuel_type,
+            'price' => $request->price,
+            'available' => $request->available,
+        ]);*/
+        return response()->json(['success' => true, 'data' => 'okok'], 201);
     }
 
     public function update(Request $request, $id)

@@ -12,15 +12,28 @@ import WhyChooseUs from "../components/why-choose-us";
 import FeaturedVehicles from "../components/featured-vehicles";
 import HomeSidebarContent from "../components/home-sidebar-content";
 import NavbarLinks from "../components/navbar/NavbarLinks";
+import { useEffect, useState } from "react";
 
 function Home() {
   const { isLoggedIn, isLoading } = useAuthentication();
+  const [showNavbarContent, setShowNavbarContent] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowNavbarContent(true);
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <Navbar
         sidebarContent={<HomeSidebarContent />}
         links={<NavbarLinks />}
-        buttons={isLoggedIn ? <AvatarMenu /> : <NavbarLoginButtons />}
+        buttons={
+          showNavbarContent &&
+          (isLoggedIn ? <AvatarMenu /> : <NavbarLoginButtons />)
+        }
       />
       <Container overflow="hidden" maxWidth="1720px" px={[12, 8, 8]}>
         <Flex h="100vh" rowGap={4} direction={"row"}>

@@ -16,6 +16,8 @@ const CarCard = ({ props }) => {
   const navigate = (route) => {
     to_route(route);
   };
+  const photo1 = props.id < 6 ? `/images/back${props.id}.webp` : props.photo1;
+  const photo2 = props.id < 6 ? `/images/front${props.id}.webp` : props.photo2;
   return (
     <div className="vehicle-card">
       <div className="details">
@@ -26,14 +28,14 @@ const CarCard = ({ props }) => {
               objectFit="cover"
               h={"215px"}
               w={"full"}
-              src={`/images/back${props.id}.webp`}
+              src={photo1}
             ></Image>
             <Image
               className="second"
               objectFit="cover"
               h={"215px"}
               w={"full"}
-              src={`/images/front${props.id}.webp`}
+              src={photo2}
             ></Image>
           </Box>
         </div>
