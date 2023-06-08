@@ -22,14 +22,16 @@ import AvatarMenu from "../components/navbar/avatar-menu";
 import SidebarContent from "../components/dashboard/sidebar-content";
 import SearchInput from "../components/search";
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import EditItemDrawer from "../components/dashboard/edit-drawer";
 import { showToast } from "../components/toast-alert";
 import CreateItemDrawer from "../components/dashboard/create-drawer";
+import SearchContext from "../SearchContext";
 
 function Dashboard() {
   const toast = useToast();
+  const { searchResults, setSearchResults } = useContext(SearchContext);
   const [data, setData] = useState([]);
   const [header, setHeader] = useState([
     "id",
@@ -82,7 +84,7 @@ function Dashboard() {
 
   const handleUpdateItem = (itemId, updatedItem) => {
     const endpoint = `http://127.0.0.1:8000/api/${type}/${itemId}`;
-    
+
     axios
       .put(endpoint, updatedItem)
       .then((response) => {
@@ -124,7 +126,7 @@ function Dashboard() {
         sidebarContent={<SidebarContent handleData={handleData} />}
         buttons={
           <>
-            <SearchInput />
+            <SearchInput type={type.toLowerCase()} />
             <AvatarMenu />
           </>
         }
@@ -157,36 +159,69 @@ function Dashboard() {
                       </Tr>
                     </Thead>
                     <Tbody>
-                      {data.map((item) => (
-                        <Tr key={item.id}>
-                          {header.map((column) => {
-                            if (column == "available")
-                              return (
-                                <Td key={item.id}>
-                                  {item[column] == 0 ? "yes" : "no"}
-                                </Td>
-                              );
-                            else return <Td key={column}>{item[column]}</Td>;
-                          })}
-                          <Td>
-                            <EditItemDrawer
-                              dataType={type}
-                              item={item}
-                              onUpdate={(updatedItem) =>
-                                handleUpdateItem(item.id, updatedItem)
-                              }
-                            />
-                            <IconButton
-                              onClick={() => handleDelete(item.id)}
-                              bg={""}
-                              _hover={{ bg: "red.500", color: "white" }}
-                              ml={1}
-                              aria-label="Delete"
-                              icon={<DeleteIcon />}
-                            />
-                          </Td>
-                        </Tr>
-                      ))}
+                      {searchResults && searchResults.length > 0
+                        ? searchResults.map((item) => (
+                            <Tr key={item.id}>
+                              {header.map((column) => {
+                                if (column == "available")
+                                  return (
+                                    <Td key={item.id}>
+                                      {item[column] == 0 ? "yes" : "no"}
+                                    </Td>
+                                  );
+                                else
+                                  return <Td key={column}>{item[column]}</Td>;
+                              })}
+                              <Td>
+                                <EditItemDrawer
+                                  dataType={type}
+                                  item={item}
+                                  onUpdate={(updatedItem) =>
+                                    handleUpdateItem(item.id, updatedItem)
+                                  }
+                                />
+                                <IconButton
+                                  onClick={() => handleDelete(item.id)}
+                                  bg={""}
+                                  _hover={{ bg: "red.500", color: "white" }}
+                                  ml={1}
+                                  aria-label="Delete"
+                                  icon={<DeleteIcon />}
+                                />
+                              </Td>
+                            </Tr>
+                          ))
+                        : data.map((item) => (
+                            <Tr key={item.id}>
+                              {header.map((column) => {
+                                if (column == "available")
+                                  return (
+                                    <Td key={item.id}>
+                                      {item[column] == 0 ? "yes" : "no"}
+                                    </Td>
+                                  );
+                                else
+                                  return <Td key={column}>{item[column]}</Td>;
+                              })}
+                              <Td>
+                                <EditItemDrawer
+                                  dataType={type}
+                                  item={item}
+                                  onUpdate={(updatedItem) =>
+                                    handleUpdateItem(item.id, updatedItem)
+                                  }
+                                />
+                                <IconButton
+                                  onClick={() => handleDelete(item.id)}
+                                  bg={""}
+                                  _hover={{ bg: "red.500", color: "white" }}
+                                  ml={1}
+                                  aria-label="Delete"
+                                  icon={<DeleteIcon />}
+                                />
+                              </Td>
+                            </Tr>
+                          ))}
                     </Tbody>
                   </Table>
                 </TableContainer>

@@ -33,7 +33,7 @@ function BookCars() {
           links={<NavbarLinks />}
           buttons={
             <>
-              <SearchInput />
+              <SearchInput type={"cars"}/>
               <AvatarMenu />
             </>
           }
