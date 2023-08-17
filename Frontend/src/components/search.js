@@ -3,8 +3,10 @@ import { InputGroup, InputLeftElement, Input } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import SearchContext from "../SearchContext";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const SearchInput = ({ type }) => {
+  const { t } = useTranslation();
   const { setSearchResults } = useContext(SearchContext);
   const [data, setData] = useState();
 
@@ -62,7 +64,11 @@ const SearchInput = ({ type }) => {
       <InputLeftElement pointerEvents="none">
         <Icon as={SearchIcon} boxSize={3} />
       </InputLeftElement>
-      <Input type="text" placeholder="Search ..." onChange={handleSearch} />
+      <Input
+        type="text"
+        placeholder={t("searchInput")}
+        onChange={handleSearch}
+      />
     </InputGroup>
   );
 };

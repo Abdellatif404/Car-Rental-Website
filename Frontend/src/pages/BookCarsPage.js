@@ -7,7 +7,7 @@ import Footer from "../components/footer";
 import LoadingSpinner from "../components/ui/loading-spinner";
 import SearchInput from "../components/search";
 import AvatarMenu from "../components/navbar/avatar-menu";
-import HomeSidebarContent from "../components/home-sidebar-content";
+import HomeSidebarContent from "../components/home/home-sidebar-content";
 import NavbarLinks from "../components/navbar/NavbarLinks";
 import SearchContext from "../SearchContext";
 
@@ -33,7 +33,7 @@ function BookCars() {
           links={<NavbarLinks />}
           buttons={
             <>
-              <SearchInput type={"cars"}/>
+              <SearchInput type={"cars"} />
               <AvatarMenu />
             </>
           }

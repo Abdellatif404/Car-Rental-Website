@@ -9,12 +9,13 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
-const Testimonial = ({ children }: { children: ReactNode }) => {
+const Testimonial = ({ children }) => {
   return <Box>{children}</Box>;
 };
 
-const TestimonialContent = ({ children }: { children: ReactNode }) => {
+const TestimonialContent = ({ children }) => {
   return (
     <Stack
       bg={useColorModeValue("white", "gray.800")}
@@ -45,7 +46,7 @@ const TestimonialContent = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const TestimonialHeading = ({ children }: { children: ReactNode }) => {
+const TestimonialHeading = ({ children }) => {
   return (
     <Heading as={"h3"} fontSize={"xl"}>
       {children}
@@ -53,7 +54,7 @@ const TestimonialHeading = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const TestimonialText = ({ children }: { children: ReactNode }) => {
+const TestimonialText = ({ children }) => {
   return (
     <Text
       textAlign={"center"}
@@ -65,15 +66,7 @@ const TestimonialText = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const TestimonialAvatar = ({
-  src,
-  name,
-  title,
-}: {
-  src: string,
-  name: string,
-  title: string,
-}) => {
+const TestimonialAvatar = ({ src, name, title }) => {
   return (
     <Flex align={"center"} mt={8} direction={"column"}>
       <Avatar src={src} alt={name} mb={2} />
@@ -88,9 +81,10 @@ const TestimonialAvatar = ({
 };
 
 const ClientSpeak = () => {
+  const { t } = useTranslation();
   return (
     <Box mt={4} p={5}>
-      <Container  maxW={"7xl"} py={16} as={Stack} spacing={12}>
+      <Container maxW={"7xl"} py={16} as={Stack} spacing={12}>
         <Box
           textAlign={{
             lg: "center",
@@ -109,7 +103,7 @@ const ClientSpeak = () => {
               color: "gray.900",
             }}
           >
-            What Our Clients Say
+            {t("clientSpeak.title")}
           </chakra.p>
           <chakra.p
             mt={4}
@@ -123,7 +117,7 @@ const ClientSpeak = () => {
               color: "gray.400",
             }}
           >
-            We have been working with clients around the world.
+            {t("clientSpeak.description")}
           </chakra.p>
         </Box>
         <Stack
@@ -132,51 +126,53 @@ const ClientSpeak = () => {
         >
           <Testimonial>
             <TestimonialContent>
-              <TestimonialHeading>Efficient Collaborating</TestimonialHeading>
+              <TestimonialHeading>
+                {t("clientSpeak.testimonials.0.heading")}
+              </TestimonialHeading>
               <TestimonialText>
-                Outstanding car rental experience. Impressive teamwork and
-                coordination. Effortless process, highly recommended.
+                {t("clientSpeak.testimonials.0.text")}
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
               src={
                 "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
               }
-              name={"Ann Black"}
-              title={"CEO at ABC Corporation"}
+              name={t("clientSpeak.testimonials.0.name")}
+              title={t("clientSpeak.testimonials.0.title")}
             />
           </Testimonial>
           <Testimonial>
             <TestimonialContent>
-              <TestimonialHeading>Intuitive Design</TestimonialHeading>
+              <TestimonialHeading>
+                {t("clientSpeak.testimonials.1.heading")}
+              </TestimonialHeading>
               <TestimonialText>
-                Exceptional user experience. Intuitively designed for effortless
-                navigation. Highly recommended for a seamless and user-friendly
-                interface.
+                {t("clientSpeak.testimonials.1.text")}
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
               src={
                 "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
               }
-              name={"John Doe"}
-              title={"Marketing Manager"}
+              name={t("clientSpeak.testimonials.1.name")}
+              title={t("clientSpeak.testimonials.1.title")}
             />
           </Testimonial>
           <Testimonial>
             <TestimonialContent>
-              <TestimonialHeading>Mindblowing Service</TestimonialHeading>
+              <TestimonialHeading>
+                {t("clientSpeak.testimonials.2.heading")}
+              </TestimonialHeading>
               <TestimonialText>
-                Mindblowing service that exceeds expectations. Unparalleled
-                attention to detail. A service experience like no other.
+                {t("clientSpeak.testimonials.2.text")}
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
               src={
                 "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
               }
-              name={"Jane Cooper"}
-              title={"Small Business Owner"}
+              name={t("clientSpeak.testimonials.2.name")}
+              title={t("clientSpeak.testimonials.2.title")}
             />
           </Testimonial>
         </Stack>

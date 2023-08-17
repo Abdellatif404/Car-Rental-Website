@@ -7,8 +7,10 @@ import FormButton from "./form-button";
 import FormInput from "./form-input";
 import useAuthentication from "../../useAuthentication";
 import { showToast } from "../toast-alert";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const { setLoggedIn } = useAuthentication();
   const navigation = useNavigate();
   const navigate = (route) => navigation(route);
@@ -60,9 +62,9 @@ const LoginForm = () => {
   return (
     <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
       <form onSubmit={Login}>
-        <FormInput name="email" type="email" refe={email} />
-        <FormInput name="password" type="password" refe={password} />
-        <FormButton bgColor="btn-primary" btnText="Sign In" />
+        <FormInput name={t("form.email")} type="email" refe={email} />
+        <FormInput name={t("form.password")} type="password" refe={password} />
+        <FormButton bgColor="btn-primary" btnText={t("form.signIn")} />
       </form>
     </div>
   );

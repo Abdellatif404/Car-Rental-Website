@@ -16,8 +16,10 @@ import {
 import { EditIcon } from "@chakra-ui/icons";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 function ProfileDrawer() {
+  const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = React.useRef();
   const user_id = localStorage.getItem("id");
@@ -63,7 +65,7 @@ function ProfileDrawer() {
         colorScheme="telegram"
         onClick={onOpen}
       >
-        Edit profile
+        {t("profile.editProfile")}
       </Button>
 
       <Drawer
@@ -77,13 +79,15 @@ function ProfileDrawer() {
           <DrawerCloseButton />
 
           <DrawerHeader borderBottomWidth="1px">
-            Modify your profile
+            {t("profile.modifyProfile")}
           </DrawerHeader>
 
           <DrawerBody>
             <Stack spacing="24px">
               <Box>
-                <FormLabel htmlFor="firstname">Firstname</FormLabel>
+                <FormLabel htmlFor="firstname">
+                  {t("profile.firstname")}
+                </FormLabel>
                 <Input
                   ref={firstField}
                   id="firstname"
@@ -94,7 +98,9 @@ function ProfileDrawer() {
               </Box>
 
               <Box>
-                <FormLabel htmlFor="lastname">Lastname</FormLabel>
+                <FormLabel htmlFor="lastname">
+                  {t("profile.lastname")}
+                </FormLabel>
                 <Input
                   id="lastname"
                   name="lastname"
@@ -104,7 +110,9 @@ function ProfileDrawer() {
               </Box>
 
               <Box>
-                <FormLabel htmlFor="telephone">Phone number</FormLabel>
+                <FormLabel htmlFor="telephone">
+                  {t("profile.phoneNumber")}
+                </FormLabel>
                 <Input
                   id="telephone"
                   name="telephone"
@@ -117,10 +125,10 @@ function ProfileDrawer() {
 
           <DrawerFooter borderTopWidth="1px">
             <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
+              {t("profile.cancel")}
             </Button>
             <Button colorScheme="green" px={7} onClick={handleSubmit}>
-              Save
+              {t("profile.save")}
             </Button>
           </DrawerFooter>
         </DrawerContent>

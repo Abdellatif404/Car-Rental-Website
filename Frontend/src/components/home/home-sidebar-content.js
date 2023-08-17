@@ -20,6 +20,7 @@ import { RiFileTextLine } from "react-icons/ri";
 import { AiOutlineDashboard, AiOutlineInfoCircle } from "react-icons/ai";
 import { BiCar } from "react-icons/bi";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const NavItem = ({ icon, children, link, ...rest }) => {
   return (
@@ -59,6 +60,7 @@ const NavItem = ({ icon, children, link, ...rest }) => {
 };
 
 const HomeSidebarContent = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState(localStorage.getItem("email"));
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -66,14 +68,26 @@ const HomeSidebarContent = () => {
     setEmail(localStorage.getItem("email"));
   }, []);
 
+  const homeTranslation = t("linkItems.home");
+  const bookCarsTranslation = t("linkItems.bookCars");
+  const dashboardTranslation = t("linkItems.dashboard");
+  const aboutUsTranslation = t("linkItems.aboutUs");
+  const termsOfServiceTranslation = t("linkItems.termsOfService");
+
   const LinkItems = [
-    { name: "Home", icon: FiHome, link: "/home" },
-    { name: "Book Cars", icon: BiCar, link: "/cars" },
+    { name: homeTranslation, icon: FiHome, link: "/home" },
+    { name: bookCarsTranslation, icon: BiCar, link: "/cars" },
     ...(email === "admin@gmail.com"
-      ? [{ name: "Dashboard", icon: AiOutlineDashboard, link: "/dashboard" }]
+      ? [
+          {
+            name: dashboardTranslation,
+            icon: AiOutlineDashboard,
+            link: "/dashboard",
+          },
+        ]
       : []),
-    { name: "About Us", icon: AiOutlineInfoCircle, link: "/#" },
-    { name: "Terms of Service", icon: RiFileTextLine, link: "/#" },
+    { name: aboutUsTranslation, icon: AiOutlineInfoCircle, link: "/#" },
+    { name: termsOfServiceTranslation, icon: RiFileTextLine, link: "/#" },
   ];
   return (
     <>

@@ -16,14 +16,16 @@ import {
   Text,
 } from "@chakra-ui/react";
 import ProfileDrawer from "../components/ui/profile-drawer";
-import HomeSidebarContent from "../components/home-sidebar-content";
+import HomeSidebarContent from "../components/home/home-sidebar-content";
 import NavbarLinks from "../components/navbar/NavbarLinks";
 import AvatarMenu from "../components/navbar/avatar-menu";
 import Navbar from "../components/navbar/Navbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function Profile() {
+  const { t } = useTranslation();
   const user_id = localStorage.getItem("id");
   const [rents, setRents] = useState([]);
 
@@ -46,7 +48,7 @@ function Profile() {
         <VStack>
           <Box w={"90%"}>
             <HStack>
-              <Heading size={["lg", "xl"]}>List of all your rentals</Heading>
+              <Heading size={["lg", "xl"]}>{t("profile.heading")}</Heading>
               <Spacer />
               <ProfileDrawer />
             </HStack>
@@ -56,20 +58,20 @@ function Profile() {
               <Table variant="striped" size={["md", "md", "lg"]}>
                 <Thead>
                   <Tr>
-                    <Th>brand</Th>
-                    <Th>model</Th>
-                    <Th>type</Th>
-                    <Th>price</Th>
-                    <Th>gearbox</Th>
-                    <Th>rental date</Th>
-                    <Th>return date</Th>
+                    <Th>{t("profile.brand")}</Th>
+                    <Th>{t("profile.model")}</Th>
+                    <Th>{t("profile.type")}</Th>
+                    <Th>{t("profile.price")}</Th>
+                    <Th>{t("profile.gearbox")}</Th>
+                    <Th>{t("profile.rentalDate")}</Th>
+                    <Th>{t("profile.returnDate")}</Th>
                   </Tr>
                 </Thead>
                 {rents.length === 0 ? (
                   <Tbody>
                     <Tr>
                       <Td colSpan={7}>
-                        <Text textAlign="center" >No rentals available.</Text>
+                        <Text textAlign="center">{t("profile.noData")}</Text>
                       </Td>
                     </Tr>
                   </Tbody>

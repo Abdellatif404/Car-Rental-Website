@@ -1,0 +1,125 @@
+{
+  "navbar.home": "Accueil",
+  "navbar.bookCars": "Réserver une voiture",
+  "navbar.dashboard": "Tableau de bord",
+  "homePageText.spanTitle": "Louez une voiture ",
+  "homePageText.title": "et trouvez de superbes offres avec nous",
+  "homePageText.description": "Choisissez parmi une collection de voitures neuves, les prix bas font partie de notre offre quotidienne.",
+  "homePageText.button": "Réservez maintenant !",
+  "featuredVehicles.title": "Véhicules en vedette",
+  "featuredVehicles.description": "Nous travaillons avec des clients du monde entier.",
+  "whyChooseUs.title": "Pourquoi nous choisir",
+  "whyChooseUs.description": "Profitez d'une location de voiture sans tracas avec un service exceptionnel et un large choix de véhicules.",
+  "whyChooseUs.features": [
+    {
+      "title": "Large choix de voitures",
+      "description": "Nous proposons une gamme diversifiée de voitures pour répondre à vos besoins et préférences. Que vous recherchiez une voiture compacte pour la conduite en ville ou un SUV spacieux pour un voyage en famille, nous avons un large choix de véhicules parmi lesquels choisir."
+    },
+    {
+      "title": "Prix compétitifs",
+      "description": "Nous proposons des prix compétitifs qui correspondent à votre budget. Notre tarification transparente garantit que vous obtenez le meilleur rapport qualité-prix sans compromettre la qualité ou le service."
+    },
+    {
+      "title": "Processus de réservation facile",
+      "description": "Notre système de réservation en ligne convivial permet de réserver rapidement et facilement la voiture de votre choix. En quelques clics seulement, vous pouvez facilement sélectionner votre lieu de prise en charge, choisir votre voiture préférée et la réserver pour les dates souhaitées."
+    },
+    {
+      "title": "Confiance et fiabilité",
+      "description": "Avec des années d'expérience dans l'industrie de la location de voitures, nous avons acquis une réputation de confiance et de fiabilité. Vous pouvez compter sur nous pour fournir des véhicules de qualité, un excellent service et une expérience de location sans faille."
+    }
+  ],
+  "clientSpeak.title": "Ce que disent nos clients",
+  "clientSpeak.description": "Nous travaillons avec des clients du monde entier.",
+  "clientSpeak.testimonials": [
+    {
+      "heading": "Collaboration efficace",
+      "text": "Expérience exceptionnelle de location de voiture. Travail d'équipe impressionnant et coordination. Processus sans effort, fortement recommandé.",
+      "name": "Ann Black",
+      "title": "PDG chez ABC Corporation"
+    },
+    {
+      "heading": "Design intuitif",
+      "text": "Expérience utilisateur exceptionnelle. Conçu de manière intuitive pour une navigation sans effort. Hautement recommandé pour une interface fluide et conviviale.",
+      "name": "John Doe",
+      "title": "Directeur marketing"
+    },
+    {
+      "heading": "Service époustouflant",
+      "text": "Service époustouflant qui dépasse les attentes. Attention inégalée aux détails. Une expérience de service unique en son genre.",
+      "name": "Jane Cooper",
+      "title": "Propriétaire d'une petite entreprise"
+    }
+  ],
+  "footer.about": "LOCAVO",
+  "footer.aboutDescription": "Large choix de véhicules, prix compétitifs pour rendre votre expérience agréable.",
+  "footer.company": "Entreprise",
+  "footer.blog": "Blog",
+  "footer.aboutUs": "À propos de nous",
+  "footer.contactUs": "Contactez-nous",
+  "footer.legal": "Mentions légales",
+  "footer.cookiesPolicy": "Politique des cookies",
+  "footer.privacyPolicy": "Politique de confidentialité",
+  "footer.termsOfService": "Conditions d'utilisation",
+  "footer.installApp": "Installer l'application",
+  "footer.copyright": "© Copyright. Tous droits réservés.",
+  "navbarLoginButtons.login": "Connexion",
+  "navbarLoginButtons.signup": "Inscrivez-vous gratuitement",
+  "linkItems.home": "Accueil",
+  "linkItems.bookCars": "Réserver une voiture",
+  "linkItems.dashboard": "Tableau de bord",
+  "linkItems.aboutUs": "À propos de nous",
+  "linkItems.termsOfService": "Conditions d'utilisation",
+  "menuList.home": "Accueil",
+  "menuList.english": "Anglais",
+  "menuList.french": "Français",
+  "menuList.profile": "Profil",
+  "menuList.logout": "Déconnexion",
+  "searchInput": "Rechercher ...",
+
+  "carCard": {
+    "rentNow": "Louer maintenant",
+    "perDay": "/jour",
+    "gearbox": "Boîte",
+    "type": "Type",
+    "available": "Disponible",
+    "automatic": "auto",
+    "manuel": "manuel",
+    "petrol": "essence",
+    "diesel": "diesel",
+    "yes": "oui",
+    "no": "non",
+    "confirmRent": "Confirmer la location"
+  },
+  "profile": {
+    "heading": "Liste de toutes vos locations",
+    "brand": "Marque",
+    "model": "Modèle",
+    "type": "Type",
+    "price": "Prix",
+    "gearbox": "Boîte de vitesses",
+    "rentalDate": "Date de location",
+    "returnDate": "Date de retour",
+    "noData": "Aucune location disponible.",
+    "editProfile": "Modifier le profil",
+    "modifyProfile": "Modifier votre profil",
+    "firstname": "Prénom",
+    "lastname": "Nom de famille",
+    "phoneNumber": "Numéro de téléphone",
+    "cancel": "Annuler",
+    "save": "Enregistrer"
+  },
+  "form": {
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "telephone": "Téléphone",
+    "email": "Email",
+    "password": "Mot de passe",
+    "createAccount": "Créer un compte",
+    "signIn": "Se connecter",
+    "welcome":"Bienvenue à Locavo",
+    "loginMessage": "Vous n'avez pas de compte?",
+    "signupMessage": "Deja un utilisateur?"
+  },
+  "header.greeting": "Bonjour, Admin",
+  "header.logout": "Se déconnecter"
+}

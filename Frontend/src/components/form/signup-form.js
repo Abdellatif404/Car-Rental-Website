@@ -6,8 +6,10 @@ import bcrypt from "bcryptjs";
 import FormButton from "./form-button";
 import FormInput from "./form-input";
 import { showToast } from "../toast-alert";
+import { useTranslation } from "react-i18next";
 
 const SignUpForm = () => {
+  const { t } = useTranslation();
   const navigation = useNavigate();
   const navigate = (route) => navigation(route);
   const toast = useToast();
@@ -46,13 +48,13 @@ const SignUpForm = () => {
   return (
     <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
       <form onSubmit={createUserAcccount}>
-        <FormInput name="firstname" type="text" refe={firstname} />
-        <FormInput name="lastname" type="text" refe={lastname} />
-        <FormInput name="telephone" type="tel" refe={telephone} />
-        <FormInput name="email" type="email" refe={email} />
-        <FormInput name="password" type="password" refe={password} />
+        <FormInput name={t("form.firstname")} type="text" refe={firstname} />
+        <FormInput name={t("form.lastname")} type="text" refe={lastname} />
+        <FormInput name={t("form.telephone")} type="tel" refe={telephone} />
+        <FormInput name={t("form.email")} type="email" refe={email} />
+        <FormInput name={t("form.password")} type="password" refe={password} />
 
-        <FormButton bgColor="btn-secondary" btnText="Create account" />
+        <FormButton bgColor="btn-secondary" btnText={t("form.createAccount")} />
       </form>
     </div>
   );

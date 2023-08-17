@@ -1,9 +1,9 @@
-import { Box, Flex, Icon, Stack, chakra } from "@chakra-ui/react";
+import { Box, Flex, Stack, chakra } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import { BiDollar } from "react-icons/bi";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { BsShieldLock } from "react-icons/bs";
-
+import { useTranslation } from "react-i18next";
 const Feature = (props) => {
   return (
     <Flex>
@@ -59,9 +59,16 @@ const Feature = (props) => {
 };
 
 const WhyChooseUs = () => {
+  const { t } = useTranslation();
   return (
-    <Flex p={5} w="auto" justifyContent="center" alignItems="center" bg="gray.50">
-      <Box py={12} bg="gray.50" rounded="xl" >
+    <Flex
+      p={5}
+      w="auto"
+      justifyContent="center"
+      alignItems="center"
+      bg="gray.50"
+    >
+      <Box py={12} bg="gray.50" rounded="xl">
         <Box
           maxW="7xl"
           mx="auto"
@@ -88,7 +95,7 @@ const WhyChooseUs = () => {
                 color: "gray.900",
               }}
             >
-              Why Choose Us
+              {t("whyChooseUs.title")}
             </chakra.p>
             <chakra.p
               mt={4}
@@ -102,8 +109,7 @@ const WhyChooseUs = () => {
                 color: "gray.400",
               }}
             >
-              Experience hassle-free car rentals with exceptional service and a
-              wide selection of vehicles.
+              {t("whyChooseUs.description")}
             </chakra.p>
           </Box>
 
@@ -126,34 +132,32 @@ const WhyChooseUs = () => {
                 md: 10,
               }}
             >
-              <Feature title="Wide Selection of Cars" icon={<FaCar />}>
-                We offer a diverse range of cars to suit your needs and
-                preferences. Whether you're looking for a compact car for city
-                driving or a spacious SUV for a family trip, we have a wide
-                selection of vehicles to choose from.
-              </Feature>
-
-              <Feature title="Competitive Prices" icon={<BiDollar />}>
-                We provide competitive prices that fit your budget. Our
-                transparent pricing ensures that you get the best value for your
-                money without compromising on quality or service.
+              <Feature
+                title={t("whyChooseUs.features.0.title")}
+                icon={<FaCar />}
+              >
+                {t("whyChooseUs.features.0.description")}
               </Feature>
 
               <Feature
-                title="Easy Booking Process"
-                icon={<AiOutlineSchedule />}
+                title={t("whyChooseUs.features.1.title")}
+                icon={<BiDollar />}
               >
-                Our user-friendly online booking system makes it quick and
-                convenient to reserve your desired car. With just a few clicks,
-                you can easily select your pickup location, choose your
-                preferred car, and book it for your desired dates.
+                {t("whyChooseUs.features.1.description")}
               </Feature>
 
-              <Feature title="Trust and Reliability" icon={<BsShieldLock />}>
-                With years of experience in the car rental industry, we have
-                established a reputation for trust and reliability. You can rely
-                on us to provide quality vehicles, excellent service, and a
-                seamless rental experience.
+              <Feature
+                title={t("whyChooseUs.features.2.title")}
+                icon={<AiOutlineSchedule />}
+              >
+                {t("whyChooseUs.features.2.description")}
+              </Feature>
+
+              <Feature
+                title={t("whyChooseUs.features.3.title")}
+                icon={<BsShieldLock />}
+              >
+                {t("whyChooseUs.features.3.description")}
               </Feature>
             </Stack>
           </Box>

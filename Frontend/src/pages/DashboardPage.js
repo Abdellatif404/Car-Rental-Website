@@ -28,8 +28,10 @@ import EditItemDrawer from "../components/dashboard/edit-drawer";
 import { showToast } from "../components/toast-alert";
 import CreateItemDrawer from "../components/dashboard/create-drawer";
 import SearchContext from "../SearchContext";
+import { useTranslation } from "react-i18next";
 
 function Dashboard() {
+  const { t } = useTranslation();
   const toast = useToast();
   const { searchResults, setSearchResults } = useContext(SearchContext);
   const [data, setData] = useState([]);
@@ -145,7 +147,7 @@ function Dashboard() {
                 <TableContainer p={10}>
                   <Flex align="center" justify="space-between" pb={5}>
                     <Heading fontSize={{ base: "xl", md: "2xl" }} pb="5">
-                      Hi, Admin
+                    {t("header.greeting")}
                     </Heading>
                     {type === "cars" && <CreateItemDrawer dataType={type} />}
                   </Flex>

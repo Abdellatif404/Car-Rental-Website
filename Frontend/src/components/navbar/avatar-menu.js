@@ -13,8 +13,12 @@ import {
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 const AvatarMenu = () => {
+  const { t } = useTranslation();
+  const { i18n } = useTranslation();
   const fullname =
     localStorage.getItem("firstname") + " " + localStorage.getItem("lastname");
   const email = localStorage.getItem("email");
@@ -37,6 +41,13 @@ const AvatarMenu = () => {
       .catch((e) => {
         // ...
       });
+  };
+
+  const [currentLanguage, setCurrentLanguage] = useState("en");
+
+  const changeLanguage = (language) => {
+    setCurrentLanguage(language);
+    i18n.changeLanguage(language);
   };
 
   return (
@@ -66,10 +77,26 @@ const AvatarMenu = () => {
                 </Text>
               </Box>
               <MenuDivider />
-              <MenuItem onClick={() => navigate("/")}>Home</MenuItem>
-              <MenuItem onClick={() => navigate("/profile")}>Profile</MenuItem>
+              <MenuItem onClick={() => navigate("/")}>
+                {t("menuList.home")}
+              </MenuItem>
+              <MenuItem
+                onClick={() => changeLanguage("en")}
+                style={{ display: currentLanguage === "en" ? "none" : "block" }}
+              >
+                {t("menuList.english")}
+              </MenuItem>
+              <MenuItem
+                onClick={() => changeLanguage("fr")}
+                style={{ display: currentLanguage === "fr" ? "none" : "block" }}
+              >
+                {t("menuList.french")}
+              </MenuItem>
+              <MenuItem onClick={() => navigate("/profile")}>
+                {t("menuList.profile")}
+              </MenuItem>
               <MenuDivider />
-              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              <MenuItem onClick={handleLogout}>{t("menuList.logout")}</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

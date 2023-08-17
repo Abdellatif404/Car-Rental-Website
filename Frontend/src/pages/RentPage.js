@@ -21,8 +21,15 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import LoadingSpinner from "../components/ui/loading-spinner";
 import { showToast } from "../components/toast-alert";
+import { useTranslation } from "react-i18next";
+import Navbar from "../components/navbar/Navbar";
+import AvatarMenu from "../components/navbar/avatar-menu";
+import HomeSidebarContent from "../components/home/home-sidebar-content";
+import NavbarLinks from "../components/navbar/NavbarLinks";
 
 function Rent() {
+  const { t } = useTranslation();
+
   const navigation = useNavigate();
   const navigate = (route) => navigation(route);
   let params = useParams();
@@ -119,91 +126,106 @@ function Rent() {
   }
 
   return (
-    <Center h={"100vh"} m={["5%", "10%", "12%", "13%", "0%"]}>
-      <Stack
-        direction={{ base: "column", lg: "row" }}
-        boxShadow="2xl"
-        h={"auto"}
-        w={"80%"}
-        borderRadius="15px"
-        overflow={"hidden"}
-      >
-        <Box w={{ base: "100%", lg: "50%" }}>
-          <Image src={car.photo2} objectFit="cover" h={"full"}></Image>
-        </Box>
-        <Box w={{ base: "100%", lg: "50%" }} p={"5%"} bg={"white"} h={"full"}>
-          <VStack alignItems={"center"} spacing={"3"}>
-            <Heading fontWeight={"500"}>{car.brand}</Heading>
+    <>
+      <Navbar
+        sidebarContent={<HomeSidebarContent />}
+        links={<NavbarLinks />}
+        buttons={<AvatarMenu />}
+      />
+      <Center h={"100vh"} m={["5%", "10%", "12%", "13%", "0%"]}>
+        <Stack
+          direction={{ base: "column", lg: "row" }}
+          boxShadow="2xl"
+          h={"auto"}
+          w={"80%"}
+          borderRadius="15px"
+          overflow={"hidden"}
+        >
+          <Box w={{ base: "100%", lg: "50%" }}>
+            <Image src={car.photo2} objectFit="cover" h={"full"}></Image>
+          </Box>
+          <Box w={{ base: "100%", lg: "50%" }} p={"5%"} bg={"white"} h={"full"}>
+            <VStack alignItems={"center"} spacing={"3"}>
+              <Heading fontWeight={"500"}>{car.brand}</Heading>
 
-            <FormLabel fontWeight="600" color="gray.600">
-              Rental date
-            </FormLabel>
-            <Input
-              type={"date"}
-              ref={rentalDate}
-              onChange={handleRentalDateChange}
-            />
-            <FormLabel fontWeight="600" color="gray.600">
-              Return date
-            </FormLabel>
-            <Input
-              type={"date"}
-              ref={returnDate}
-              onChange={handleReturnDateChange}
-            />
+              <FormLabel fontWeight="600" color="gray.600">
+                {t("profile.rentalDate")}
+              </FormLabel>
+              <Input
+                type={"date"}
+                ref={rentalDate}
+                onChange={handleRentalDateChange}
+              />
+              <FormLabel fontWeight="600" color="gray.600">
+                {t("profile.returnDate")}
+              </FormLabel>
+              <Input
+                type={"date"}
+                ref={returnDate}
+                onChange={handleReturnDateChange}
+              />
 
-            <Divider borderColor="gray.300" py={3} />
-            <SimpleGrid w={"full"} columns={3} py={3} textAlign="center">
-              <GridItem>
-                <Heading fontWeight="500" color="gray.400" size="xs">
-                  Gearbox
-                </Heading>
-                <Text fontWeight="600" color="gray.600">
-                  {car.gearbox}
-                </Text>
-              </GridItem>
-              <GridItem>
-                <Heading fontWeight="500" color="gray.400" size="xs">
-                  Type
-                </Heading>
-                <Text fontWeight="600" color="gray.600">
-                  {car.fuel_type}
-                </Text>
-              </GridItem>
-              <GridItem>
-                <Heading fontWeight="500" color="gray.400" size="xs">
-                  Available
-                </Heading>
-                <Text fontWeight="600" color="gray.600">
-                  {car.available ? "yes" : "no"}
-                </Text>
-              </GridItem>
-            </SimpleGrid>
-            <Divider borderColor="gray.300" py={0} />
+              <Divider borderColor="gray.300" py={3} />
+              <SimpleGrid w={"full"} columns={3} py={3} textAlign="center">
+                <GridItem>
+                  <Heading fontWeight="500" color="gray.400" size="xs">
+                    {t("profile.gearbox")}
+                  </Heading>
+                  <Text fontWeight="600" color="gray.600">
+                    {car.gearbox === "automatic" || car.gearbox === "manuel"
+                      ? t(`carCard.${car.gearbox.toLowerCase()}`)
+                      : car.fuel_type}
+                  </Text>
+                </GridItem>
+                <GridItem>
+                  <Heading fontWeight="500" color="gray.400" size="xs">
+                    {t("profile.type")}
+                  </Heading>
+                  <Text fontWeight="600" color="gray.600">
+                    {car.fuel_type === "petrol" || car.fuel_type === "diesel"
+                      ? t(`carCard.${car.fuel_type.toLowerCase()}`)
+                      : car.fuel_type}
+                  </Text>
+                </GridItem>
+                <GridItem>
+                  <Heading fontWeight="500" color="gray.400" size="xs">
+                    {t("carCard.available")}
+                  </Heading>
+                  <Text fontWeight="600" color="gray.600">
+                    {car.available === 1
+                      ? t("carCard.yes")
+                      : car.available === 0
+                      ? t("carCard.no")
+                      : car.available}
+                  </Text>
+                </GridItem>
+              </SimpleGrid>
+              <Divider borderColor="gray.300" py={0} />
 
-            <HStack w={"full"} justify={"space-between"}>
-              <Text fontWeight="600" color="gray.600">
-                Total
-              </Text>
-              <Spacer />
-              <Text
-                color="gray.600"
-                fontSize="2xl"
-                fontWeight={["bold", "extrabold"]}
-              >
-                ${totalPrice.toFixed(2)}
-              </Text>
-              <Text ml={2} fontSize="xl" fontWeight="medium" color="gray.500">
-                USD
-              </Text>
-            </HStack>
-            <Button onClick={rentACar} w={"full"}>
-              Confirm rent
-            </Button>
-          </VStack>
-        </Box>
-      </Stack>
-    </Center>
+              <HStack w={"full"} justify={"space-between"}>
+                <Text fontWeight="600" color="gray.600">
+                  Total
+                </Text>
+                <Spacer />
+                <Text
+                  color="gray.600"
+                  fontSize="2xl"
+                  fontWeight={["bold", "extrabold"]}
+                >
+                  ${totalPrice.toFixed(2)}
+                </Text>
+                <Text ml={2} fontSize="xl" fontWeight="medium" color="gray.500">
+                  USD
+                </Text>
+              </HStack>
+              <Button onClick={rentACar} w={"full"}>
+                {t("carCard.confirmRent")}
+              </Button>
+            </VStack>
+          </Box>
+        </Stack>
+      </Center>
+    </>
   );
 }
 

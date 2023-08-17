@@ -1,7 +1,9 @@
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const HomePageButton = () => {
+  const { t } = useTranslation();
   const to_route = useNavigate();
   const navigate = (route) => {
     to_route(route);
@@ -21,7 +23,7 @@ const HomePageButton = () => {
       borderRadius="50px"
       py="27px"
     >
-      Book online now!
+      {t("homePageText.button")}
     </Button>
   );
 };

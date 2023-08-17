@@ -9,6 +9,7 @@ import {
   Text,
   chakra,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const CarCard = ({ image, carName, model }) => {
   return (
@@ -38,10 +39,7 @@ const CarCard = ({ image, carName, model }) => {
           >
             {carName}
           </Text>
-          <chakra.span
-            fontSize="sm"
-            color="gray.700"
-          >
+          <chakra.span fontSize="sm" color="gray.700">
             {model}
           </chakra.span>
         </Box>
@@ -51,6 +49,8 @@ const CarCard = ({ image, carName, model }) => {
 };
 
 const FeaturedVehicles = () => {
+  const { t } = useTranslation();
+
   return (
     <Box mt={4} p={5}>
       <Container maxW={"7xl"} py={16} as={Stack} spacing={12}>
@@ -72,7 +72,7 @@ const FeaturedVehicles = () => {
               color: "gray.900",
             }}
           >
-            Featured Vehicles
+            {t("featuredVehicles.title")}
           </chakra.p>
           <chakra.p
             mt={4}
@@ -86,7 +86,7 @@ const FeaturedVehicles = () => {
               color: "gray.400",
             }}
           >
-            We have been working with clients around the world.
+            {t("featuredVehicles.description")}
           </chakra.p>
         </Box>
         <Stack

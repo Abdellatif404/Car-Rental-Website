@@ -12,8 +12,9 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
-const ListHeader = ({ children }: { children: ReactNode }) => {
+const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
       {children}
@@ -22,6 +23,7 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 };
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <Box
       bg={"gray.200"}
@@ -33,28 +35,25 @@ const Footer = () => {
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"} px={{ base: 0, sm: 0, md: 10 }}>
-            <ListHeader>About LOCAVO </ListHeader>
-            <Text fontSize="sm">
-              a wide selection of vehicles, competitive prices to make your
-              experience enjoyable.
-            </Text>
+            <ListHeader>{t("footer.about")}</ListHeader>
+            <Text fontSize="sm">{t("footer.aboutDescription")}</Text>
           </Stack>
           <Stack align={"flex-start"} pl={{ base: 0, sm: 0, md: 10 }}>
-            <ListHeader>Company</ListHeader>
-            <Link href={"#"}>Blog</Link>
-            <Link href={"#"}>About Us</Link>
-            <Link href={"#"}>Contact Us</Link>
+            <ListHeader>{t("footer.company")}</ListHeader>
+            <Link href={"#"}>{t("footer.blog")}</Link>
+            <Link href={"#"}>{t("footer.aboutUs")}</Link>
+            <Link href={"#"}>{t("footer.contactUs")}</Link>
           </Stack>
 
           <Stack align={"flex-start"}>
-            <ListHeader>Legal</ListHeader>
-            <Link href={"#"}>Cookies Policy</Link>
-            <Link href={"#"}>Privacy Policy</Link>
-            <Link href={"#"}>Terms of Service</Link>
+            <ListHeader>{t("footer.legal")}</ListHeader>
+            <Link href={"#"}>{t("footer.cookiesPolicy")}</Link>
+            <Link href={"#"}>{t("footer.privacyPolicy")}</Link>
+            <Link href={"#"}>{t("footer.termsOfService")}</Link>
           </Stack>
 
           <Stack align={"flex-start"}>
-            <ListHeader>Install App</ListHeader>
+            <ListHeader>{t("footer.installApp")}</ListHeader>
             <Image
               src="images/appstore.png"
               alt="Download on the App Store"
@@ -82,7 +81,7 @@ const Footer = () => {
         borderStyle={"solid"}
         borderColor={"gray.300"}
       >
-        <Text>© Copyright. All rights reserved.</Text>
+        <Text>{t("footer.copyright")}</Text>
       </Container>
     </Box>
   );

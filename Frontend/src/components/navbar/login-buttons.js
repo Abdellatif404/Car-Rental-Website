@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const NavbarLoginButtons = () => {
+  const { t } = useTranslation();
   const to_route = useNavigate();
   const navigate = (route) => {
     to_route(route);
@@ -12,14 +14,14 @@ const NavbarLoginButtons = () => {
         className="btn-outline-secondary px-3 me-2"
         onClick={() => navigate("/login")}
       >
-        Login
+        {t("navbarLoginButtons.login")}
       </button>
       <button
         type="button"
         className="btn-primary"
         onClick={() => navigate("/signup")}
       >
-        Sign up for free
+        {t("navbarLoginButtons.signup")}
       </button>
     </div>
   );

@@ -1,5 +1,6 @@
 import { Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SubCard = ({
   textHoverColor = "",
@@ -8,6 +9,8 @@ const SubCard = ({
   route,
   btnText,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={
@@ -17,10 +20,10 @@ const SubCard = ({
     >
       <div className="p-lg-5 p-md-0 p-4 w-100">
         <Heading fontFamily="" fontWeight="400" mb={3}>
-          Welcome to Locavo
+        {t("form.welcome")}
         </Heading>
         <Text mb={6}>{question}?</Text>
-        
+
         <Link to={route} className={textHoverColor + " subcard-btn-outline"}>
           {btnText}
         </Link>

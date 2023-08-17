@@ -1,16 +1,16 @@
 import { Container, Flex, VStack } from "@chakra-ui/react";
 import Navbar from "../components/navbar/Navbar";
 import NavbarLoginButtons from "../components/navbar/login-buttons";
-import HomePageText from "../components/ui/home-page-text";
-import HomePageButton from "../components/ui/home-page-button";
-import HomePageImage from "../components/ui/home-page-image";
+import HomePageText from "../components/home/home-page-text";
+import HomePageButton from "../components/home/home-page-button";
+import HomePageImage from "../components/home/home-page-image";
 import Footer from "../components/footer";
-import ClientSpeak from "../components/client-speak";
+import ClientSpeak from "../components/home/client-speak";
 import AvatarMenu from "../components/navbar/avatar-menu";
 import useAuthentication from "../useAuthentication";
-import WhyChooseUs from "../components/why-choose-us";
-import FeaturedVehicles from "../components/featured-vehicles";
-import HomeSidebarContent from "../components/home-sidebar-content";
+import WhyChooseUs from "../components/home/why-choose-us";
+import FeaturedVehicles from "../components/home/featured-vehicles";
+import HomeSidebarContent from "../components/home/home-sidebar-content";
 import NavbarLinks from "../components/navbar/NavbarLinks";
 import { useEffect, useState } from "react";
 
